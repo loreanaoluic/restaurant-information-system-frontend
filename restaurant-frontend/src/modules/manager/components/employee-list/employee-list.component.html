@@ -1,0 +1,24 @@
+
+<table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th>Username</th>
+        <th>Name and surname</th>
+        <th>E-mail</th>
+        <th>Salary</th>
+        <th>Role</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+          <td>{{user.username}}</td>
+          <td>{{user.name+ " "+ user.lastName}}</td>
+          <td>{{user.emailAddress}}</td>
+          <td>{{user.salary}}</td>
+          <td>{{user.dtype}}</td>
+          <td>EDIT</td>
+      </tr>
+
+    </tbody>
+  </table>
