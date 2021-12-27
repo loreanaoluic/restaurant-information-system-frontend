@@ -14,8 +14,6 @@ export class EmployeeListComponent implements OnInit {
   constructor(private managerService : ManagerService, private authService : AuthService) { }
 
   ngOnInit(): void {
-    console.log(this.authService.getCurrentUser());
-
     this.managerService.getAllUsers().subscribe(
       (response) => {
         this.users = response;

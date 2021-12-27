@@ -7,7 +7,6 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
 import { EmployeesPageComponent } from './pages/employees-page/employees-page.component';
 
 
-
 @NgModule({
   declarations: [
     EmployeeListComponent,
@@ -16,7 +15,7 @@ import { EmployeesPageComponent } from './pages/employees-page/employees-page.co
   imports: [
     CommonModule,
     HttpClientModule,
-    RouterModule.forChild(ManagerRoutes)
+    RouterModule.forChild(ManagerRoutes),
   ]
 })
 export class ManagerModule { }

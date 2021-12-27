@@ -4,6 +4,8 @@ import { Login } from 'src/modules/app/models/Login';
 import { AuthService } from 'src/modules/app/services/auth.service';
 import { Router } from "@angular/router";
 import { Token } from 'src/modules/app/models/Token';
+import { toBase64String } from '@angular/compiler/src/output/source_map';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +13,13 @@ import { Token } from 'src/modules/app/models/Token';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  formdata : FormGroup
+  formdata : FormGroup;
+  errorMessage : string = "";
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastrService : ToastrService
   ) {
     this.formdata = new FormGroup({
       username: new FormControl(),
@@ -42,10 +46,10 @@ export class LoginComponent implements OnInit {
           this.authService.setCurrentUser(token);
           this.router.navigate(["manager/employees"]);
         }
-        
       },
-      error: (result) => {
-        console.log("MAJMUN");
+      error: (error) => {
+        if(error.status === 400) this.toastrService.error("Bad credentials!");
+        
       }
     });
   }

@@ -11,13 +11,16 @@ import { Interceptor } from './interceptors/interceptor.interceptor';
 import { AuthService } from './services/auth.service';
 import { ManagerModule } from '../manager/manager.module';
 import { BaseLayoutComponent } from './pages/base-layout/base-layout.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    BaseLayoutComponent
+    BaseLayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +28,10 @@ import { BaseLayoutComponent } from './pages/base-layout/base-layout.component';
     HttpClientModule,
     ReactiveFormsModule,
     ManagerModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass :'toast-top-right'
+    })
   ],
   providers: [AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true },],
