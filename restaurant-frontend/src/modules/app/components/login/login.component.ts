@@ -44,7 +44,14 @@ export class LoginComponent implements OnInit {
         if(tokenString){
           let token : Token = JSON.parse(tokenString);
           this.authService.setCurrentUser(token);
-          this.router.navigate(["manager/employees"]);
+
+          let role = this.authService.getCurrentUser()?.dtype!;
+
+          if(role === "Manager") this.router.navigate(["manager/employees"]);
+          if(role === "Waiter") this.router.navigate(["waiter/newOrder"]);
+          if(role === "Cook" || role === "Chef") this.router.navigate(["cook/orders"]);
+          if(role === "Bartender" || role === "HeadBartender") this.router.navigate(["bartender/orders"]);
+          if(role === "Director") this.router.navigate(["director/employees"]);
         }
       },
       error: (error) => {

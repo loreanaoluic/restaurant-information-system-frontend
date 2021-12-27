@@ -4,7 +4,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarManagerComponent } from './components/navbar-manager/navbar-manager.component';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Interceptor } from './interceptors/interceptor.interceptor';
@@ -13,14 +13,24 @@ import { ManagerModule } from '../manager/manager.module';
 import { BaseLayoutComponent } from './pages/base-layout/base-layout.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { NavbarWaiterComponent } from './components/navbar-waiter/navbar-waiter.component';
+import { NavbarCookComponent } from './components/navbar-cook/navbar-cook.component';
+import { NavbarBartenderComponent } from './components/navbar-bartender/navbar-bartender.component';
+import { NavbarDirectorComponent } from './components/navbar-director/navbar-director.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
+    NavbarManagerComponent,
     LoginComponent,
     BaseLayoutComponent,
+    NotFoundComponent,
+    NavbarWaiterComponent,
+    NavbarCookComponent,
+    NavbarBartenderComponent,
+    NavbarDirectorComponent,
   ],
   imports: [
     BrowserModule,
