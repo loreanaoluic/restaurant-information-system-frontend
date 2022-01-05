@@ -7,6 +7,8 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
 import { EmployeesPageComponent } from './pages/employees-page/employees-page.component';
 import { DrinkCardComponent } from './components/drink-card/drink-card.component';
 import { DrinkCardPageComponent } from './pages/drink-card-page/drink-card-page.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { MenuPageComponent } from './pages/menu-page/menu-page.component';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { DrinkCardPageComponent } from './pages/drink-card-page/drink-card-page.
     EmployeeListComponent,
     EmployeesPageComponent,
     DrinkCardComponent,
-    DrinkCardPageComponent
+    DrinkCardPageComponent,
+    MenuComponent,
+    MenuPageComponent
   ],
   imports: [
     CommonModule,

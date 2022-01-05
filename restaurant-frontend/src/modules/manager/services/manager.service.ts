@@ -25,4 +25,11 @@ export class ManagerService {
       responseType: "json",
     });
   }
+
+  getAllMenuItems(): Observable<Item[]>{
+    return this.http.get<Item[]>("backend/api/waiter/all-menu-items", {
+      headers: this.headers,
+      responseType: "json",
+    });
+  }
 }
