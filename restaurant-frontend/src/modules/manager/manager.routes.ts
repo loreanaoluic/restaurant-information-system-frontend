@@ -1,6 +1,7 @@
 import { Routes } from "@angular/router";
 import { RoleGuard } from "../app/guards/role.guard";
 import { EmployeesPageComponent } from "./pages/employees-page/employees-page.component";
+import { DrinkCardPageComponent } from "./pages/drink-card-page/drink-card-page.component";
 
 export const ManagerRoutes: Routes = [
   {
@@ -10,5 +11,11 @@ export const ManagerRoutes: Routes = [
     canActivate: [RoleGuard],
     data: { expectedRoles: "Manager" },
   },
-  
+  {
+    path: "drinkCard",
+    pathMatch: "full",
+    component: DrinkCardPageComponent,
+    canActivate: [RoleGuard],
+    data: { expectedRoles: "Manager" },
+  }
 ];
