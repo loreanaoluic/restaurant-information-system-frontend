@@ -12,14 +12,14 @@ export const ManagerRoutes: Routes = [
     pathMatch: "full",
     component: EmployeesPageComponent,
     canActivate: [RoleGuard],
-    data: { expectedRoles: "Manager" },
+    data: { expectedRoles: "Manager|Director" },
   },
   {
     path: "profile",
     pathMatch: "full",
     component: ProfileInfoComponent,
     canActivate: [RoleGuard],
-    data: { expectedRoles: "Manager" }, 
+    data: { expectedRoles: "Manager|Director" }, 
   },
   {
     path: "drinkCard",

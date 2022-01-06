@@ -4,18 +4,18 @@ import { EmployeesPageComponent } from './pages/employees-page/employees-page.co
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { DirectorRoutes } from './director.routes';
-import { EmployeeListComponent } from './components/employee-list/employee-list.component';
+import { ManagerModule } from '../manager/manager.module';
 
 
 @NgModule({
   declarations: [
     EmployeesPageComponent,
-    EmployeeListComponent
   ],
   imports: [
     CommonModule,
-    HttpClientModule,
+    HttpClientModule,    
     RouterModule.forChild(DirectorRoutes),
+    ManagerModule,
   ]
 })
 export class DirectorModule { }

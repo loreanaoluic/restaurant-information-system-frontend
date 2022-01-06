@@ -28,6 +28,9 @@ import { ItemRequestsPageComponent } from './pages/item-requests-page/item-reque
     CommonModule,
     HttpClientModule,
     RouterModule.forChild(ManagerRoutes),
+  ],
+  exports: [
+    EmployeeListComponent
   ]
 })
 export class ManagerModule { }
