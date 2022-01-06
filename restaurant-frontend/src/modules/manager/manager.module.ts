@@ -9,6 +9,8 @@ import { DrinkCardComponent } from './components/drink-card/drink-card.component
 import { DrinkCardPageComponent } from './pages/drink-card-page/drink-card-page.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MenuPageComponent } from './pages/menu-page/menu-page.component';
+import { ItemRequestsComponent } from './components/item-requests/item-requests.component';
+import { ItemRequestsPageComponent } from './pages/item-requests-page/item-requests-page.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { MenuPageComponent } from './pages/menu-page/menu-page.component';
     DrinkCardComponent,
     DrinkCardPageComponent,
     MenuComponent,
-    MenuPageComponent
+    MenuPageComponent,
+    ItemRequestsComponent,
+    ItemRequestsPageComponent
   ],
   imports: [
     CommonModule,
