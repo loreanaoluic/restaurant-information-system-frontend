@@ -67,9 +67,16 @@ font-family: 'EB Garamond', serif;
 }
 .control{
 	position: absolute;
-	bottom: 20%;
+	bottom: 0%;
 	left: 22.8%;
 	
+}
+
+.price {
+	text-align: center;
+	font-family: 'EB Garamond', serif;
+	font-size: 24px;
+	color: #666666;
 }
 
 /* CSS */
@@ -140,3 +147,7 @@ font-family: 'EB Garamond', serif;
 
 .product-image:hover img {transition: all 0.3s ease-out;}
 .product-image:hover img {transform: scale(1.2, 1.2);}
+
+.col-3 {
+	margin-top:-40px;
+  }

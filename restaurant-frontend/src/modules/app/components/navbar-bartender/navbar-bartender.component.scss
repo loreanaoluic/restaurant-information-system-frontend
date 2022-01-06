@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap');
+
+.nav-item {
+    padding: 10px 12px;
+}
+
+.nav-link{
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+	display: inline-block;
+	position: relative;
+	font-size: 22px;
+	color: #344055;
+	margin: 0;
+    position: relative;
+    cursor: pointer;
+    white-space: nowrap;
+    &::before {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left:0;
+        height:100%;
+        width: 100%;
+        z-index:-1;
+        transition: .2s;
+        border-radius: 25px;
+    }
+        &:hover {
+            &::before {
+                background: linear-gradient(to bottom, #e8edec, #d2d1d3);
+                    box-shadow: 0px 3px 20px 0px black;
+                    transform: scale(1.2);
+            }
+            color: black;
+    }
+}
