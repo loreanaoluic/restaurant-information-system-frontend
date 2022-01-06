@@ -1,0 +1,56 @@
+<h2>{{setRoleForTitle()}} profile</h2>
+<br>
+<div class="container d-flex">
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p>Name</p>
+        </div>
+        <div class="col">
+            <input type="text" (input)="update(user)" [value]="user.name"><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p>Last name</p>
+        </div>
+        <div class="col">
+            <input type="text" (input)="update(user)" [value]="user.lastName"><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p>E-mail</p>
+        </div>
+        <div class="col">
+            <input type="text" (input)="update(user)" [value]="user.emailAddress"><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p>Username</p>
+        </div>
+        <div class="col">
+            <input type="text" (input)="update(user)" [value]="user.username"><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p>Salary</p>
+        </div>
+        <div class="col">
+            <input type="number" (input)="update(user)" [value]="user.salary" [min]="0" [disabled]="true">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+          
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-success" (click)="storeChanges()">Store changes</button>
+        </div>
+    </div>
+  </div>
+
+  <img src="../../../../assets/images/user-icon.png" style="width: 200px; height: 200px;">
+</div>

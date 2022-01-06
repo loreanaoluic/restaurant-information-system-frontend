@@ -18,6 +18,7 @@ import { NavbarWaiterComponent } from './components/navbar-waiter/navbar-waiter.
 import { NavbarCookComponent } from './components/navbar-cook/navbar-cook.component';
 import { NavbarBartenderComponent } from './components/navbar-bartender/navbar-bartender.component';
 import { NavbarDirectorComponent } from './components/navbar-director/navbar-director.component';
+import { ProfileInfoComponent } from './components/profile-info/profile-info.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { NavbarDirectorComponent } from './components/navbar-director/navbar-dir
     NavbarCookComponent,
     NavbarBartenderComponent,
     NavbarDirectorComponent,
+    ProfileInfoComponent,
   ],
   imports: [
     BrowserModule,
