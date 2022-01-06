@@ -19,6 +19,10 @@ import { NavbarCookComponent } from './components/navbar-cook/navbar-cook.compon
 import { NavbarBartenderComponent } from './components/navbar-bartender/navbar-bartender.component';
 import { NavbarDirectorComponent } from './components/navbar-director/navbar-director.component';
 import { ProfileInfoComponent } from './components/profile-info/profile-info.component';
+import { DirectorModule } from '../director/director.module';
+import { BartenderModule } from '../bartender/bartender.module';
+import { WaiterModule } from '../waiter/waiter.module';
+import { CookModule } from '../cook/cook.module';
 
 
 @NgModule({
@@ -40,6 +44,10 @@ import { ProfileInfoComponent } from './components/profile-info/profile-info.com
     HttpClientModule,
     ReactiveFormsModule,
     ManagerModule,
+    DirectorModule,
+    BartenderModule,
+    WaiterModule,
+    CookModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass :'toast-top-right'

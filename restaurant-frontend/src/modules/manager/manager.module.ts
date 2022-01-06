@@ -24,6 +24,9 @@ import { MenuPageComponent } from './pages/menu-page/menu-page.component';
     CommonModule,
     HttpClientModule,
     RouterModule.forChild(ManagerRoutes),
+  ],
+  exports: [
+    EmployeeListComponent
   ]
 })
 export class ManagerModule { }
