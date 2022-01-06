@@ -25,7 +25,7 @@ background: #DFC2F2;
 	position: relative;
 	text-align: left;
 	overflow: hidden;
-	padding: 30px;
+	padding: 45px;
 	height: 100%;
 	float: left;
 	width: 50%;
@@ -68,8 +68,16 @@ font-family: 'EB Garamond', serif;
 .control{
 	position: absolute;
 	bottom: 0%;
-	left: 22.8%;
 	
+}
+
+.btn-edit {
+	margin: 0px -45px;
+  	outline: none;
+	padding: 4px 4px;
+	appearance: none;
+	background-color: #FFFFFF;
+	border-style: none;
 }
 
 .price {
@@ -77,6 +85,7 @@ font-family: 'EB Garamond', serif;
 	font-family: 'EB Garamond', serif;
 	font-size: 24px;
 	color: #666666;
+	margin: 0px 0px -10px 0px;
 }
 
 /* CSS */
@@ -147,7 +156,3 @@ font-family: 'EB Garamond', serif;
 
 .product-image:hover img {transition: all 0.3s ease-out;}
 .product-image:hover img {transform: scale(1.2, 1.2);}
-
-.col-3 {
-	margin-top:-40px;
-  }
