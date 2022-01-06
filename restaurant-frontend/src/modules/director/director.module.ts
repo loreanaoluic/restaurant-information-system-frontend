@@ -4,12 +4,13 @@ import { EmployeesPageComponent } from './pages/employees-page/employees-page.co
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { DirectorRoutes } from './director.routes';
-
+import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 
 
 @NgModule({
   declarations: [
-    EmployeesPageComponent
+    EmployeesPageComponent,
+    EmployeeListComponent
   ],
   imports: [
     CommonModule,
