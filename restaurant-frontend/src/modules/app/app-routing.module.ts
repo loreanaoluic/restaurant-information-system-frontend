@@ -40,6 +40,16 @@ const routes: Routes = [
         path: "director",
         loadChildren: () =>
           import("../director/director.module").then((d) => d.DirectorModule),
+      },
+      {
+        path: "chef",
+        loadChildren: () =>
+          import("../chef/chef.module").then((d) => d.ChefModule),
+      },
+      {
+        path: "head-bartender",
+        loadChildren: () =>
+          import("../head-bartender/head-bartender.module").then((d) => d.HeadBartenderModule),
       }
     ]
   },

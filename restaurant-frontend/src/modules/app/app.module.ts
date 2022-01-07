@@ -23,6 +23,8 @@ import { DirectorModule } from '../director/director.module';
 import { BartenderModule } from '../bartender/bartender.module';
 import { WaiterModule } from '../waiter/waiter.module';
 import { CookModule } from '../cook/cook.module';
+import { HeadBartenderModule } from '../head-bartender/head-bartender.module';
+import { ChefModule } from '../chef/chef.module';
 import { OverlayModule } from '@angular/cdk/overlay';
 
 import { FormsModule } from '@angular/forms';
@@ -50,6 +52,8 @@ import { FormsModule } from '@angular/forms';
     BartenderModule,
     WaiterModule,
     CookModule,
+    HeadBartenderModule,
+    ChefModule,
     BrowserAnimationsModule,
     OverlayModule,
     ToastrModule.forRoot({
