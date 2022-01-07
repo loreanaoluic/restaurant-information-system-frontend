@@ -1,5 +1,5 @@
 <div class="container">
-  <button type="button" class="btn btn-secondary" (click)="openPopupCreate()">
+  <button type="button" class="btn btn-secondary" (click)="openCreateModal()">
     Add new employee
   </button>
   <table class="styled-table">
@@ -48,33 +48,4 @@
       </tr>
     </tbody>
   </table>
-
-  <hr />
-
-  <div
-    class="modal"
-    tabindex="-1"
-    role="dialog"
-    [ngStyle]="{ display: displayStyle }"
-  >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Kreiraj novog korisnika</h4>
-        </div>
-        <div class="modal-body">
-          <app-employee-create></app-employee-create>
-        </div>
-        <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-danger"
-            (click)="closePopupCreate()"
-          >
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>

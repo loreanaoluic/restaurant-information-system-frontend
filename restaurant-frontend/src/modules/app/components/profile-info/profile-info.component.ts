@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { User } from '../../models/User';
 import { AuthService } from '../../services/auth.service';
+import { Token } from 'src/modules/app/models/Token';
 import { UserService } from '../../services/user.service';
 
 @Component({

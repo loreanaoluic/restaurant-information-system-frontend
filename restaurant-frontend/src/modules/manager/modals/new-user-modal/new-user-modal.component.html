@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h5 class="modal-title" id="exampleModalLabel">Izmena korisnika</h5>
+  <h5 class="modal-title" id="exampleModalLabel">Novi korisnik</h5>
   <button
     type="button"
     class="btn-close"
@@ -13,11 +13,15 @@
       <input
         type="text"
         class="input-field"
-        id="name"
-        name="name"
-        value="{{ user.name }}"
+        id="username"
+        name="username"
         required
       />
+      <label class="input-label">Korisnicko ime</label>
+    </div>
+
+    <div class="input">
+      <input type="text" class="input-field" id="name" name="name" required />
       <label class="input-label">Ime</label>
     </div>
 
@@ -27,7 +31,6 @@
         class="input-field"
         id="lastName"
         name="lastName"
-        value="{{ user.lastName }}"
         required
       />
       <label class="input-label">Prezime</label>
@@ -37,9 +40,8 @@
       <input
         type="text"
         class="input-field"
-        id="email"
-        name="email"
-        value="{{ user.emailAddress }}"
+        id="emailAddress"
+        name="emailAddress"
         required
       />
       <label class="input-label">Email</label>
@@ -51,22 +53,36 @@
         class="input-field"
         name="salary"
         id="salary"
-        value="{{ user.salary }}"
         required
       />
       <label class="input-label">Plata</label>
     </div>
 
     <div class="input">
+      <input type="text" class="input-field" name="role" id="role" required />
+      <label class="input-label">Uloga</label>
+    </div>
+
+    <div class="input">
       <input
-        type="text"
+        type="password"
         class="input-field"
-        name="role"
-        id="role"
-        value="{{ user.dtype }}"
+        name="password"
+        id="password"
         required
       />
-      <label class="input-label">Uloga</label>
+      <label class="input-label">Lozinka</label>
+    </div>
+
+    <div class="input">
+      <input
+        type="password"
+        class="input-field"
+        name="password2"
+        id="password2"
+        required
+      />
+      <label class="input-label">Lozinka</label>
     </div>
   </form>
 </div>
