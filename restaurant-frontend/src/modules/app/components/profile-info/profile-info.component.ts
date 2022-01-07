@@ -2,6 +2,7 @@ import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../models/User';
 import { AuthService } from '../../services/auth.service';
+import { Token } from 'src/modules/app/models/Token';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -11,35 +12,25 @@ import { UserService } from '../../services/user.service';
 })
 export class ProfileInfoComponent implements OnInit {
   user : User;
-  form : FormGroup;
-  fb : FormBuilder;
 
-  constructor(
-    private authService : AuthService,
-    private userService : UserService,
-  ) {
+  constructor (private authService : AuthService, private userService : UserService) { }
+
+  ngOnInit(): void {
     this.user = this.authService.getCurrentUser()!;
-    this.fb = new FormBuilder();
-    this.form = this.fb.group({
-      username: [this.user.username, ], //Validators.required
-      name: [this.user.name, ], //Validators.compose([Validators.required, Validators.pattern("[A-Za-z0-9]{1,20}")])
-      lastName: [this.user.lastName,  ], //Validators.compose([Validators.required, Validators.pattern("[A-Za-z0-9]{1,20}")])
-      email: [this.user.emailAddress,  ], //Validators.compose([Validators.required, Validators.pattern("[A-Za-z0-9]+@[A-Za-z0-9]\.[a-z]{3}")])
-    });
   }
 
-  ngOnInit(): void {}
-
-  storeChanges(){
-    this.user.emailAddress = this.form.value.email;
-    this.user.name = this.form.value.name;
-    this.user.lastName = this.form.value.lastName;
-    this.user.username = this.form.value.username;
-
+  saveChanges(){
+    if ((<HTMLInputElement>document.getElementById("name")).value !== "") {
+      this.user.name = (<HTMLInputElement>document.getElementById("name")).value;
+    }
+    if ((<HTMLInputElement>document.getElementById("lastName")).value !== "") {
+      this.user.lastName = (<HTMLInputElement>document.getElementById("lastName")).value;
+    }
+    if ((<HTMLInputElement>document.getElementById("emailAddress")).value !== "") {
+      this.user.emailAddress = (<HTMLInputElement>document.getElementById("emailAddress")).value;
+    }
+    
     this.userService.update(this.user);
-  }
-
-  setRoleForTitle(){
-    return this.user.dtype;
+    window.location.href = 'http://localhost:4200/login';
   }
 }
