@@ -23,6 +23,7 @@ import { DirectorModule } from '../director/director.module';
 import { BartenderModule } from '../bartender/bartender.module';
 import { WaiterModule } from '../waiter/waiter.module';
 import { CookModule } from '../cook/cook.module';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { CookModule } from '../cook/cook.module';
     WaiterModule,
     CookModule,
     BrowserAnimationsModule,
+    OverlayModule,
     ToastrModule.forRoot({
       positionClass :'toast-top-right'
     })

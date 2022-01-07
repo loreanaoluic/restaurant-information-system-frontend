@@ -11,6 +11,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { MenuPageComponent } from './pages/menu-page/menu-page.component';
 import { ItemRequestsComponent } from './components/item-requests/item-requests.component';
 import { ItemRequestsPageComponent } from './pages/item-requests-page/item-requests-page.component';
+import { RequestInfoModalComponent } from './modals/request-info-modal/request-info-modal.component';
+import { MdbModalService } from 'mdb-angular-ui-kit/modal';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { ItemRequestsPageComponent } from './pages/item-requests-page/item-reque
     MenuComponent,
     MenuPageComponent,
     ItemRequestsComponent,
-    ItemRequestsPageComponent
+    ItemRequestsPageComponent,
+    RequestInfoModalComponent
   ],
   imports: [
     CommonModule,
@@ -31,6 +34,9 @@ import { ItemRequestsPageComponent } from './pages/item-requests-page/item-reque
   ],
   exports: [
     EmployeeListComponent
+  ],
+  entryComponents: [
+    RequestInfoModalComponent
   ]
 })
 export class ManagerModule { }
