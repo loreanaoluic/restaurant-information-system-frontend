@@ -1,21 +1,27 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { User } from 'src/modules/app/models/User';
 import { AuthService } from 'src/modules/app/services/auth.service';
+import { NewUserModalComponent } from '../../modals/new-user-modal/new-user-modal.component';
+import { UserEditModalComponent } from '../../modals/user-edit-modal/user-edit-modal.component';
 import { ManagerService } from '../../services/manager.service';
-import { EmployeeUpdateComponent } from '../employee-update/employee-update.component';
 
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
   styleUrls: ['./employee-list.component.scss'],
+  providers: [MdbModalService],
 })
 export class EmployeeListComponent implements OnInit {
   users: User[] = [];
-  body = {};
+  user: User;
+  newUser: User;
+  modalRef: MdbModalRef<UserEditModalComponent>;
 
   constructor(
     private managerService: ManagerService,
-    private authService: AuthService
+    private authService: AuthService,
+    private modalService: MdbModalService
   ) {}
 
   ngOnInit(): void {
@@ -30,18 +36,14 @@ export class EmployeeListComponent implements OnInit {
   }
 
   displayStyle = 'none';
-  displayStyle1 = 'none';
-  openPopupCreate() {
-    this.displayStyle = 'block';
+
+  openModal(user: User) {
+    this.modalRef = this.modalService.open(UserEditModalComponent, {
+      data: { user: user },
+    });
   }
-  openPopupUpdate(selectedUser: any) {
-    this.displayStyle1 = 'block';
-    console.log(selectedUser.name);
-  }
-  closePopupCreate() {
-    this.displayStyle = 'none';
-  }
-  closePopupUpdate() {
-    this.displayStyle1 = 'none';
+
+  openCreateModal() {
+    this.modalRef = this.modalService.open(NewUserModalComponent);
   }
 }

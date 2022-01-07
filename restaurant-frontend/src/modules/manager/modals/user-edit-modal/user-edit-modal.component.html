@@ -1,0 +1,80 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Izmena korisnika</h5>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="modalRef.close()"
+  ></button>
+</div>
+<div class="modal-body">
+  <form class="card-form">
+    <div class="input">
+      <input
+        type="text"
+        class="input-field"
+        id="name"
+        name="name"
+        value="{{ user.name }}"
+        required
+      />
+      <label class="input-label">Ime</label>
+    </div>
+
+    <div class="input">
+      <input
+        type="text"
+        class="input-field"
+        id="lastName"
+        name="lastName"
+        value="{{ user.lastName }}"
+        required
+      />
+      <label class="input-label">Prezime</label>
+    </div>
+
+    <div class="input">
+      <input
+        type="text"
+        class="input-field"
+        id="email"
+        name="email"
+        value="{{ user.emailAddress }}"
+        required
+      />
+      <label class="input-label">Email</label>
+    </div>
+
+    <div class="input">
+      <input
+        type="text"
+        class="input-field"
+        name="salary"
+        id="salary"
+        value="{{ user.salary }}"
+        required
+      />
+      <label class="input-label">Plata</label>
+    </div>
+
+    <div class="input">
+      <input
+        type="text"
+        class="input-field"
+        name="role"
+        id="role"
+        value="{{ user.dtype }}"
+        required
+      />
+      <label class="input-label">Uloga</label>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+    Close
+  </button>
+  <button type="submit" class="btn btn-primary" (click)="saveChanges()">
+    Save changes
+  </button>
+</div>
