@@ -5,13 +5,15 @@ import { NewOrderPageComponent } from './pages/new-order-page/new-order-page.com
 import { RouterModule } from '@angular/router';
 import { WaiterRoutes } from './waiter.routes';
 import { HttpClientModule } from '@angular/common/http';
-
-
+import { NotificationPageComponent } from './pages/notification-page/notification-page.component';
+import { NotificationComponent } from './components/notifications/notification.component';
 
 @NgModule({
   declarations: [
     NewOrderComponent,
-    NewOrderPageComponent
+    NewOrderPageComponent,
+    NotificationComponent,
+    NotificationPageComponent
   ],
   imports: [
     CommonModule,
