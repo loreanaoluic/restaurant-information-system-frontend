@@ -50,7 +50,8 @@ export class LoginComponent implements OnInit {
           if(role === "Manager") this.router.navigate(["manager/employees"]);
           if(role === "Waiter") this.router.navigate(["waiter/newOrder"]);
           if(role === "Cook" || role === "Chef") this.router.navigate(["cook/orders"]);
-          if(role === "Bartender" || role === "HeadBartender") this.router.navigate(["bartender/orders"]);
+          if(role === "Bartender") this.router.navigate(["bartender/orders"]);
+          if(role === "HeadBartender") this.router.navigate(["head-bartender/drinkSuggestion"])
           if(role === "Director") this.router.navigate(["director/employees"]);
         }
       },
