@@ -4,23 +4,32 @@ import { ToastrService } from 'ngx-toastr';
 import { User } from '../models/User';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
-  private headers = new HttpHeaders({ "Content-Type": "application/json"});
+  private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-  constructor(
-    private http: HttpClient, 
-    private toastr: ToastrService,
-    ) { }
+  constructor(private http: HttpClient, private toastr: ToastrService) {}
 
-  update(user: User): void{
-    this.http.post<User>("backend/api/user/update-user", user, {
-      headers: this.headers,
-      responseType: "json",
-    }).subscribe(response => {
-      this.toastr.success("Update successful!");
-      localStorage.setItem("currentUser", JSON.stringify(user));
-    });
+  update(user: User): void {
+    this.http
+      .post<User>('backend/api/user/update-user', user, {
+        headers: this.headers,
+        responseType: 'json',
+      })
+      .subscribe((response) => {
+        this.toastr.success('Update successfull!');
+      });
+  }
+
+  create(user: User): void {
+    this.http
+      .post<User>('backend/api/user/new-user', user, {
+        headers: this.headers,
+        responseType: 'json',
+      })
+      .subscribe((response) => {
+        this.toastr.success('create successfull!');
+      });
   }
 }

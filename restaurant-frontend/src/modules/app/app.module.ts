@@ -12,7 +12,7 @@ import { AuthService } from './services/auth.service';
 import { ManagerModule } from '../manager/manager.module';
 import { BaseLayoutComponent } from './pages/base-layout/base-layout.component';
 import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NavbarWaiterComponent } from './components/navbar-waiter/navbar-waiter.component';
 import { NavbarCookComponent } from './components/navbar-cook/navbar-cook.component';
@@ -25,6 +25,7 @@ import { WaiterModule } from '../waiter/waiter.module';
 import { CookModule } from '../cook/cook.module';
 import { OverlayModule } from '@angular/cdk/overlay';
 
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -52,11 +53,14 @@ import { OverlayModule } from '@angular/cdk/overlay';
     BrowserAnimationsModule,
     OverlayModule,
     ToastrModule.forRoot({
-      positionClass :'toast-top-right'
-    })
+      positionClass: 'toast-top-right',
+    }),
+    FormsModule,
   ],
-  providers: [AuthService,
-    { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true },],
-  bootstrap: [AppComponent]
+  providers: [
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
