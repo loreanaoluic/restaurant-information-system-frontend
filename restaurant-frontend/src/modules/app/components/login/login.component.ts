@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Login } from 'src/modules/app/models/Login';
 import { AuthService } from 'src/modules/app/services/auth.service';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 import { Token } from 'src/modules/app/models/Token';
 import { toBase64String } from '@angular/compiler/src/output/source_map';
 import { ToastrService } from 'ngx-toastr';
@@ -10,20 +10,20 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  formdata : FormGroup;
-  errorMessage : string = "";
+  formdata: FormGroup;
+  errorMessage: string = '';
 
   constructor(
     private authService: AuthService,
     private router: Router,
-    private toastrService : ToastrService
+    private toastrService: ToastrService
   ) {
     this.formdata = new FormGroup({
       username: new FormControl(),
-      password: new FormControl()
+      password: new FormControl(),
     });
   }
 
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     console.log(this.authService.getCurrentUser());
   }
 
-  submit(){
+  submit() {
     const auth: Login = {
       username: this.formdata.value.username,
       password: this.formdata.value.password,
@@ -39,10 +39,10 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(auth).subscribe({
       next: (result) => {
-        localStorage.setItem("userToken", JSON.stringify(result));
-        let tokenString = localStorage.getItem("userToken");
-        if(tokenString){
-          let token : Token = JSON.parse(tokenString);
+        localStorage.setItem('userToken', JSON.stringify(result));
+        let tokenString = localStorage.getItem('userToken');
+        if (tokenString) {
+          let token: Token = JSON.parse(tokenString);
           this.authService.setCurrentUser(token);
 
           let role = this.authService.getCurrentUser()?.dtype!;
@@ -56,9 +56,8 @@ export class LoginComponent implements OnInit {
         }
       },
       error: (error) => {
-        if(error.status === 400) this.toastrService.error("Bad credentials!");
-        
-      }
+        if (error.status === 400) this.toastrService.error('Bad credentials!');
+      },
     });
   }
 }
