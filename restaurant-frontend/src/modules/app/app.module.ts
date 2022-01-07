@@ -26,7 +26,7 @@ import { CookModule } from '../cook/cook.module';
 import { HeadBartenderModule } from '../head-bartender/head-bartender.module';
 import { ChefModule } from '../chef/chef.module';
 import { OverlayModule } from '@angular/cdk/overlay';
-
+import { ChangePasswordModalComponent } from './modals/change-password-modal/change-password-modal.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -40,6 +40,7 @@ import { FormsModule } from '@angular/forms';
     NavbarCookComponent,
     NavbarBartenderComponent,
     NavbarDirectorComponent,
+    ChangePasswordModalComponent,
     ProfileInfoComponent,
   ],
   imports: [
@@ -66,5 +67,8 @@ import { FormsModule } from '@angular/forms';
     { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true },
   ],
   bootstrap: [AppComponent],
+  entryComponents: [
+    ChangePasswordModalComponent
+  ],
 })
 export class AppModule {}
