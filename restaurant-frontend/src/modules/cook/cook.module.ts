@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CookRoutes } from './cook.routes';
-import { OrdersComponent } from './components/orders/orders.component';
-
+import { FoodOrdersComponent } from './components/food-orders/food-orders.component';
+import { OrdersPageComponent } from './pages/orders-page/orders-page.component';
 
 
 @NgModule({
   declarations: [
-    OrdersComponent
+    FoodOrdersComponent,
+    OrdersPageComponent
   ],
   imports: [
     CommonModule,
