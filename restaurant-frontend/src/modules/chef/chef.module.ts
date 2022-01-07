@@ -4,11 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ChefRoutes } from './chef.routes';
 import { MealSuggestionPageComponent } from './pages/meal-suggestion-page/meal-suggestion-page.component';
-
+import { MealSuggestionComponent } from './components/meal-suggestion/meal-suggestion.component';
 
 
 @NgModule({
   declarations: [
+    MealSuggestionComponent,
     MealSuggestionPageComponent
   ],
   imports: [

@@ -18,6 +18,7 @@ import { DrinkSuggestionComponent } from './components/drink-suggestion/drink-su
     RouterModule.forChild(HeadBartenderRoutes),
     FormsModule,
     ReactiveFormsModule
-  ]
+  ],
+  exports: [DrinkSuggestionComponent],
 })
 export class HeadBartenderModule { }
