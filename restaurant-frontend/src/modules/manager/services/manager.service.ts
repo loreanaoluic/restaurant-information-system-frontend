@@ -59,4 +59,22 @@ export class ManagerService {
       this.toastr.success("Request declined!");
     });
   }
+
+  updateDrinkCardItem(item: Item): void{
+    this.http.post<Item>("backend/api/manager/update-drink-card-item", item, {
+      headers: this.headers,
+      responseType: "json",
+    }).subscribe(response => {
+      this.toastr.success("Drink updated!");
+    });
+  }
+
+  updateMenuItem(item: Item): void{
+    this.http.post<Item>("backend/api/manager/update-menu-item", item, {
+      headers: this.headers,
+      responseType: "json",
+    }).subscribe(response => {
+      this.toastr.success("Meal updated!");
+    });
+  }
 }

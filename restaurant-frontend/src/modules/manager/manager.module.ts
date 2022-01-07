@@ -15,7 +15,8 @@ import { RequestInfoModalComponent } from './modals/request-info-modal/request-i
 import { EmployeeUpdateComponent } from './components/employee-update/employee-update.component';
 import { EmployeeCreateComponent } from './components/employee-create/employee-create.component';
 import { FormsModule } from '@angular/forms';
-import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
+import { DrinkEditModalComponent } from './modals/drink-edit-modal/drink-edit-modal.component';
+import { FoodEditModalComponent } from './modals/food-edit-modal/food-edit-modal.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,8 @@ import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
     ItemRequestsComponent,
     ItemRequestsPageComponent,
     RequestInfoModalComponent,
+    DrinkEditModalComponent,
+    FoodEditModalComponent,
     EmployeeUpdateComponent,
     EmployeeCreateComponent,
   ],
@@ -38,6 +41,10 @@ import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
     FormsModule,
   ],
   exports: [EmployeeListComponent],
-  entryComponents: [RequestInfoModalComponent],
+  entryComponents: [
+    RequestInfoModalComponent,
+    DrinkEditModalComponent,
+    FoodEditModalComponent
+  ],
 })
 export class ManagerModule {}

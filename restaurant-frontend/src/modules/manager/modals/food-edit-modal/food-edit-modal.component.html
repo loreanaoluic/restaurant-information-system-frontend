@@ -1,0 +1,39 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel"> {{ meal.name }} </h5>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="modalRef.close()"
+  ></button>
+</div>
+<div class="modal-body">
+  <form class="card-form">
+    <div class="input">
+        <input type="text" class="input-field" id="itemName" name="itemName" value="{{meal.name}}" required/>
+      <label class="input-label">Item name</label>
+    </div>
+    <div class="input">
+        <input type="text" class="input-field" id="ingredients" name="ingredients" value="{{meal.ingredients}}" required>
+      <label class="input-label">Ingredients</label>
+    </div>
+    <div class="input">
+        <input type="text" class="input-field" id="description" name="description" value="{{meal.description}}" required>
+      <label class="input-label">Description</label>
+    </div>
+    <div class="input">
+      <input type="number" class="input-field" [min]="0" id="preparationTime" name="preparationTime" value="{{meal.preparationTime}}" required>
+    <label class="input-label">Preparation time</label>
+  </div>
+    <div class="input">
+        <input type="number" class="input-field" [min]="0" id="price" name="price" value="{{meal.price.value}}" required>
+      <label class="input-label">Price</label>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+    Close
+  </button>
+  <button type="submit" class="btn btn-primary" (click)="saveChanges()">Save changes</button>
+</div>
