@@ -1,58 +1,94 @@
-<h2>{{setRoleForTitle()}} profile</h2>
-<br>
+<h2>{{ setRoleForTitle() }} profile</h2>
+<br />
 <form [formGroup]="form" (ngSubmit)="storeChanges()">
-<div class="container d-flex">
-<div class="container">
-    <div class="row">
+  <div class="container d-flex">
+    <div class="container">
+      <div class="row">
         <div class="col">
-            <p>Name</p>
+          <p>Name</p>
         </div>
         <div class="col">
-            <input type="text" [value]="user.name" formControlName="name"><br>
+          <input type="text" [value]="user.name" formControlName="name" /><br />
         </div>
-    </div>
-    <div class="row">
+      </div>
+      <div class="row">
         <div class="col">
-            <p>Last name</p>
-        </div>
-        <div class="col">
-            <input type="text" [value]="user.lastName" formControlName="lastName"><br>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <p>E-mail</p>
+          <p>Last name</p>
         </div>
         <div class="col">
-            <input type="text" [value]="user.emailAddress" formControlName="email"><br>
+          <input
+            type="text"
+            [value]="user.lastName"
+            formControlName="lastName"
+          /><br />
         </div>
-    </div>
-    <div class="row">
+      </div>
+      <div class="row">
         <div class="col">
-            <p>Username</p>
-        </div>
-        <div class="col">
-            <input type="text" [value]="user.username" formControlName="username"><br>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <p>Salary</p>
+          <p>E-mail</p>
         </div>
         <div class="col">
-            <input type="number" [value]="user.salary" [min]="0" [disabled]="true">
+          <input
+            type="text"
+            [value]="user.emailAddress"
+            formControlName="email"
+          /><br />
         </div>
-    </div>
-    <div class="row">
+      </div>
+      <div class="row">
         <div class="col">
-          
+          <p>Username</p>
         </div>
         <div class="col">
-            <button type="submit" class="btn btn-success" >Store changes</button>
+          <input
+            type="text"
+            [value]="user.username"
+            formControlName="username"
+          /><br />
         </div>
-    </div>
-  </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p>Salary</p>
+        </div>
+        <div class="col">
+          <input
+            type="number"
+            [value]="user.salary"
+            [min]="0"
+            [disabled]="true"
+          />
+        </div>
+      </div>
 
-  <img src="../../../../assets/images/user-icon.png" style="width: 200px; height: 200px;">
-</div>
+      <div class="row">
+        <div class="col">
+          <p>New password</p>
+        </div>
+        <div class="col">
+          <input type="password" formControlName="password1" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <p>Old password</p>
+        </div>
+        <div class="col">
+          <input type="password" formControlName="password2" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col">
+          <button type="submit" class="btn btn-success">Store changes</button>
+        </div>
+      </div>
+    </div>
+
+    <img
+      src="../../../../assets/images/user-icon.png"
+      style="width: 200px; height: 200px"
+    />
+  </div>
 </form>

@@ -21,7 +21,12 @@
         <td>{{ user.salary }}</td>
         <td>{{ user.dtype }}</td>
         <td>
-          <button type="button" class="btn btn-warning">
+          <button
+            type="button"
+            class="btn btn-warning"
+            id="update"
+            (click)="openModal(user)"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -45,15 +50,6 @@
   </table>
 
   <hr />
-  <div class="d-flex justify-content-end">
-    <button
-      type="submit"
-      class="btn btn-dark btn-md"
-      (click)="openPopupCreate()"
-    >
-      Dodaj novog korisnika
-    </button>
-  </div>
 
   <div
     class="modal"
@@ -74,31 +70,6 @@
             type="button"
             class="btn btn-danger"
             (click)="closePopupCreate()"
-          >
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div
-    class="modal"
-    tabindex="-1"
-    role="dialog"
-    [ngStyle]="{ display: displayStyle1 }"
-  >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Azuriraj postojeceg korisnika</h4>
-        </div>
-        <div class="modal-body"></div>
-        <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-danger"
-            (click)="closePopupUpdate()"
           >
             Close
           </button>

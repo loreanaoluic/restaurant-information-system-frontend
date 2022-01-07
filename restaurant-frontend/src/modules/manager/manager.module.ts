@@ -17,6 +17,7 @@ import { EmployeeCreateComponent } from './components/employee-create/employee-c
 import { FormsModule } from '@angular/forms';
 import { DrinkEditModalComponent } from './modals/drink-edit-modal/drink-edit-modal.component';
 import { FoodEditModalComponent } from './modals/food-edit-modal/food-edit-modal.component';
+import { UserEditModalComponent } from './modals/user-edit-modal/user-edit-modal.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { FoodEditModalComponent } from './modals/food-edit-modal/food-edit-modal
     FoodEditModalComponent,
     EmployeeUpdateComponent,
     EmployeeCreateComponent,
+    UserEditModalComponent,
   ],
   imports: [
     CommonModule,
@@ -44,7 +46,8 @@ import { FoodEditModalComponent } from './modals/food-edit-modal/food-edit-modal
   entryComponents: [
     RequestInfoModalComponent,
     DrinkEditModalComponent,
-    FoodEditModalComponent
+    FoodEditModalComponent,
+    UserEditModalComponent,
   ],
 })
 export class ManagerModule {}
