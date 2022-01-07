@@ -9,9 +9,9 @@
         </a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item" *ngIf="currentRole === 'HeadBartender'">
-                <a class="nav-link" href="#">Drink suggestion</a>
+                <a class="nav-link" href="head-bartender/drinkSuggestion">Drink suggestion</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="currentRole === 'Bartender'">
                 <a class="nav-link" href="bartender/orders">Orders</a>
             </li>
         </ul>
