@@ -29,5 +29,6 @@ export class NewUserModalComponent implements OnInit {
     );
 
     this.userService.create(user);
+    window.location.reload();
   }
 }

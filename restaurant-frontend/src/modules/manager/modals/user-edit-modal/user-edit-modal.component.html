@@ -13,6 +13,18 @@
       <input
         type="text"
         class="input-field"
+        id="username"
+        name="username"
+        value="{{ user.username }}"
+        required
+      />
+      <label class="input-label">Korisnicko ime</label>
+    </div>
+
+    <div class="input">
+      <input
+        type="text"
+        class="input-field"
         id="name"
         name="name"
         value="{{ user.name }}"
@@ -37,8 +49,8 @@
       <input
         type="text"
         class="input-field"
-        id="email"
-        name="email"
+        id="emailAddress"
+        name="emailAddress"
         value="{{ user.emailAddress }}"
         required
       />
