@@ -18,6 +18,7 @@ import { DrinkEditModalComponent } from './modals/drink-edit-modal/drink-edit-mo
 import { FoodEditModalComponent } from './modals/food-edit-modal/food-edit-modal.component';
 import { UserEditModalComponent } from './modals/user-edit-modal/user-edit-modal.component';
 import { NewUserModalComponent } from './modals/new-user-modal/new-user-modal.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { NewUserModalComponent } from './modals/new-user-modal/new-user-modal.co
   imports: [
     CommonModule,
     HttpClientModule,
+    Ng2SearchPipeModule,
     RouterModule.forChild(ManagerRoutes),
     FormsModule,
   ],

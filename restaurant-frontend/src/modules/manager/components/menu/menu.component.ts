@@ -13,6 +13,8 @@ import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 export class MenuComponent implements OnInit {
   menuItems : Item[] = [];
   modalRef: MdbModalRef<FoodEditModalComponent>
+  searchTerm: string;
+  term: string;
 
   constructor(private managerService : ManagerService, private modalService: MdbModalService) { }
 

@@ -13,6 +13,8 @@ import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 export class DrinkCardComponent implements OnInit {
   drinks : Item[] = [];
   modalRef: MdbModalRef<DrinkEditModalComponent>
+  searchTerm: string;
+  term: string;
 
   constructor(private managerService : ManagerService, private modalService: MdbModalService) { }
 

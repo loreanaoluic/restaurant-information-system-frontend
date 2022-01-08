@@ -15,6 +15,8 @@ import { ManagerService } from '../../services/manager.service';
 export class EmployeeListComponent implements OnInit {
   users: User[] = [];
   modalRef: MdbModalRef<UserEditModalComponent>;
+  searchTerm: string;
+  term: string;
 
   constructor(
     private managerService: ManagerService,
@@ -46,7 +48,6 @@ export class EmployeeListComponent implements OnInit {
   }
 
   deleteUser(username: string) {
-    console.log(username);
     this.managerService.deleteUser(username);
     window.location.reload();
   }
