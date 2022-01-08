@@ -11,6 +11,7 @@
         <th>Salary</th>
         <th>Role</th>
         <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -44,6 +45,9 @@
               />
             </svg>
           </button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger" *ngIf="user.dtype !== 'Director'" (click)="deleteUser(user.username)">Fire</button>
         </td>
       </tr>
     </tbody>

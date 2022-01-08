@@ -29,4 +29,9 @@ export class DrinkEditModalComponent {
 
     this.managerService.updateDrinkCardItem(this.drink);
   }
+
+  deleteItem() {
+    this.managerService.deleteDrinkCardItem(this.drink);
+    window.location.reload();
+  }
 }

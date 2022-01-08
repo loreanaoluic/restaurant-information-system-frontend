@@ -77,4 +77,31 @@ export class ManagerService {
       this.toastr.success("Meal updated!");
     });
   }
+
+  deleteDrinkCardItem(item: Item): void{
+    this.http.post<Item>("backend/api/manager/delete-drink-card-item", item, {
+      headers: this.headers,
+      responseType: "json",
+    }).subscribe(response => {
+      this.toastr.success("Drink deleted!");
+    });
+  }
+
+  deleteMenuItem(item: Item): void{
+    this.http.post<Item>("backend/api/manager/delete-menu-item", item, {
+      headers: this.headers,
+      responseType: "json",
+    }).subscribe(response => {
+      this.toastr.success("Meal deleted!");
+    });
+  }
+
+  deleteUser(username: string): void{
+    this.http.post("backend/api/manager/delete-user/" + username, {
+      headers: this.headers,
+      responseType: "json",
+    }).subscribe(response => {
+      this.toastr.success("User fired!");
+    });
+  }
 }

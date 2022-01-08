@@ -32,4 +32,9 @@ export class FoodEditModalComponent {
 
     this.managerService.updateMenuItem(this.meal);
   }
+
+  deleteItem() {
+    this.managerService.deleteMenuItem(this.meal);
+    window.location.reload();
+  }
 }
