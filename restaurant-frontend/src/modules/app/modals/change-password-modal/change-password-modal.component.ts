@@ -3,20 +3,28 @@ import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { User } from '../../models/User';
 import { UserService } from '../../services/user.service';
 
-@Component(
-  { selector: 'app-modal',
+@Component({
+  selector: 'app-modal',
   templateUrl: './change-password-modal.component.html',
-  styleUrls: ['./change-password-modal.component.scss']
+  styleUrls: ['./change-password-modal.component.scss'],
 })
 export class ChangePasswordModalComponent {
-  user : User;
+  user: User;
 
-  constructor(public modalRef: MdbModalRef<ChangePasswordModalComponent>, private userService: UserService) {}
+  constructor(
+    public modalRef: MdbModalRef<ChangePasswordModalComponent>,
+    private userService: UserService
+  ) {}
 
   saveChanges() {
-    if ((<HTMLInputElement>document.getElementById("password1")).value !== "" && 
-    (<HTMLInputElement>document.getElementById("password1")).value === (<HTMLInputElement>document.getElementById("password2")).value) {
-      this.user.password = (<HTMLInputElement>document.getElementById("password1")).value;
+    if (
+      (<HTMLInputElement>document.getElementById('password1')).value !== '' &&
+      (<HTMLInputElement>document.getElementById('password1')).value ===
+        (<HTMLInputElement>document.getElementById('password2')).value
+    ) {
+      this.user.password = (<HTMLInputElement>(
+        document.getElementById('password1')
+      )).value;
     }
 
     this.userService.update(this.user);

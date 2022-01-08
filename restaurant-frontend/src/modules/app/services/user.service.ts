@@ -12,10 +12,10 @@ export class UserService {
 
   constructor(private http: HttpClient, private toastr: ToastrService) {}
 
-  getUserByUsername(username: string): Observable<User>{
-    return this.http.get<User>("backend/api/user/" + username, {
+  getUserByUsername(username: string): Observable<User> {
+    return this.http.get<User>('backend/api/user/' + username, {
       headers: this.headers,
-      responseType: "json",
+      responseType: 'json',
     });
   }
 
