@@ -13,19 +13,13 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  formdata: FormGroup;
   errorMessage: string = '';
 
   constructor(
     private authService: AuthService,
     private router: Router,
     private toastrService: ToastrService
-  ) {
-    this.formdata = new FormGroup({
-      username: new FormControl(),
-      password: new FormControl(),
-    });
-  }
+  ) { }
 
   ngOnInit(): void {
     console.log(this.authService.getCurrentUser());
@@ -33,8 +27,8 @@ export class LoginComponent implements OnInit {
 
   submit() {
     const auth: Login = {
-      username: this.formdata.value.username,
-      password: this.formdata.value.password,
+      username: (<HTMLInputElement>document.getElementById("username")).value,
+      password: (<HTMLInputElement>document.getElementById("password")).value,
     };
 
     this.authService.login(auth).subscribe({
