@@ -139,4 +139,27 @@ export class ManagerService {
       this.toastr.success("User fired!");
     });
   }
+
+  orderDrink(item: Item): void{
+    const tableId = localStorage.getItem("tableId");
+    const receiptId = localStorage.getItem("receiptId");
+    this.http.post<Item>("backend/api/waiter/order-drink/" + tableId + "/" + receiptId, item, {
+      headers: this.headers,
+      responseType: "json",
+    }).subscribe(response => {
+      this.toastr.success("Drink added to the receipt");
+    });
+  }
+
+  orderMeal(item: Item): void{
+    const tableId = localStorage.getItem("tableId");
+    const receiptId = localStorage.getItem("receiptId");
+    this.http.post<Item>("backend/api/waiter/order-meal/" + tableId + "/" + receiptId, item, {
+      headers: this.headers,
+      responseType: "json",
+    }).subscribe(response => {
+      this.toastr.success("Meal added to the receipt!");
+    });
+  }
+  
 }

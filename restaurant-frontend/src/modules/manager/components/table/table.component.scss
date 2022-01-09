@@ -16,8 +16,22 @@
 .image {
     position: relative;
 }
-.image span {
+
+.spanIdSquare {
+    position: absolute;
+    right: 90px;
+    top: 20px;
+}
+
+.spanIdRound {
     position: absolute;
     right: 80px;
     top: 30px;
+}
+
+
+.spanIdBar {
+    position: absolute;
+    right: 50px;
+    top: -10px;
 }

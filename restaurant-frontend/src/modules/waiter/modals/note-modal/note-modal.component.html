@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel"> Edit additional note </h5>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="modalRef.close()"
+  ></button>
+</div>
+<div class="modal-body">
+  <form class="card-form">
+    <div class="input">
+        <input type="text" class="input-field" id="note" name="note" required/>
+      <label class="input-label">Note</label>
+    </div>
+  </form>
+</div>
+<div class="modal-footer justify-content-between">
+  <button type="submit" class="btn btn-primary" (click)="update()">Save changes</button>
+</div>

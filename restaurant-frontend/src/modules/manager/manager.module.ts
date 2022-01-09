@@ -12,7 +12,6 @@ import { MenuPageComponent } from './pages/menu-page/menu-page.component';
 import { ItemRequestsComponent } from './components/item-requests/item-requests.component';
 import { ItemRequestsPageComponent } from './pages/item-requests-page/item-requests-page.component';
 import { RequestInfoModalComponent } from './modals/request-info-modal/request-info-modal.component';
-import { EmployeeCreateComponent } from './components/employee-create/employee-create.component';
 import { FormsModule } from '@angular/forms';
 import { DrinkEditModalComponent } from './modals/drink-edit-modal/drink-edit-modal.component';
 import { FoodEditModalComponent } from './modals/food-edit-modal/food-edit-modal.component';
@@ -38,7 +37,6 @@ import { DeleteTableModalComponent } from './modals/delete-table-modal/delete-ta
     RequestInfoModalComponent,
     DrinkEditModalComponent,
     FoodEditModalComponent,
-    EmployeeCreateComponent,
     UserEditModalComponent,
     AddTableModalComponent,
     DeleteTableModalComponent,
@@ -54,7 +52,11 @@ import { DeleteTableModalComponent } from './modals/delete-table-modal/delete-ta
     RouterModule.forChild(ManagerRoutes),
     FormsModule,
   ],
-  exports: [EmployeeListComponent],
+  exports: [
+    EmployeeListComponent,
+    DrinkCardComponent,
+    MenuComponent
+  ],
   entryComponents: [
     RequestInfoModalComponent,
     DrinkEditModalComponent,
