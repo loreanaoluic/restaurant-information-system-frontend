@@ -49,4 +49,8 @@ export class StepperOrderComponent {
     this.stepper.selectedIndex = 2;
   }
 
+  done() {
+    window.location.href = 'http://localhost:4200/waiter/newOrder';
+  }
+
 }

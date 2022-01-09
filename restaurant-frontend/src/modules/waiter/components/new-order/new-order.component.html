@@ -6,7 +6,10 @@
             <h2>{{table.id}}</h2>
         </span> 
         <span class="spanBtnSquare">
-            <button type="button" class="btn btn-primary" (click)="newOrder(table.id)">Make order</button>
+            <button type="button" class="btn btn-primary" (click)="newOrder(table.id)"
+             *ngIf="table.tableStatus === 'NOT_OCCUPIED'">Make order</button>
+             <button type="button" class="btn btn-primary" (click)="newOrder(table.id)"
+             *ngIf="table.tableStatus === 'OCCUPIED'" disabled>Occupied</button>
         </span>  
     </div>
     <div id="ROUND" class="image" *ngIf="table.tableShape === 'ROUND'"
@@ -16,7 +19,10 @@
             <h2>{{table.id}}</h2>
         </span> 
         <span class="spanBtnRound">
-            <button type="button" class="btn btn-primary" (click)="newOrder(table.id)">Make order</button>
+            <button type="button" class="btn btn-primary" (click)="newOrder(table.id)"
+             *ngIf="table.tableStatus === 'NOT_OCCUPIED'">Make order</button>
+             <button type="button" class="btn btn-primary" (click)="newOrder(table.id)"
+             *ngIf="table.tableStatus === 'OCCUPIED'" disabled>Occupied</button>
         </span>   
      </div>
     <div id="BAR" class="image" *ngIf="table.tableShape === 'BAR'"
@@ -26,7 +32,10 @@
             <h2>{{table.id}}</h2>
         </span> 
         <span class="spanBtnBar">
-            <button type="button" class="btn btn-primary" (click)="newOrder(table.id)">Make order</button>
+            <button type="button" class="btn btn-primary" (click)="newOrder(table.id)"
+             *ngIf="table.tableStatus === 'NOT_OCCUPIED'">Make order</button>
+             <button type="button" class="btn btn-primary" (click)="newOrder(table.id)"
+             *ngIf="table.tableStatus === 'OCCUPIED'" disabled>Occupied</button>
         </span>   
     </div>
 </div>
