@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/modules/app/models/User';
 import { Item } from 'src/modules/app/models/Item';
 import { Request } from 'src/modules/app/models/Request';
+import { RestaurantTable } from 'src/modules/app/models/RestaurantTable';
 
 @Injectable({
   providedIn: 'root'
@@ -35,10 +36,44 @@ export class ManagerService {
     });
   }
 
+  getAllRestaurantTables(): Observable<RestaurantTable[]>{
+    return this.http.get<RestaurantTable[]>("backend/api/manager/restaurant-tables", {
+      headers: this.headers,
+      responseType: "json",
+    });
+  }
+
   getAllRequests(): Observable<Request[]>{
     return this.http.get<Request[]>("backend/api/manager/requests", {
       headers: this.headers,
       responseType: "json",
+    });
+  }
+
+  addRestaurantTable(restaurantTable: RestaurantTable): void{
+    this.http.post<RestaurantTable>("backend/api/manager/add-restaurant-table", restaurantTable, {
+      headers: this.headers,
+      responseType: "json",
+    }).subscribe(response => {
+      this.toastr.success("Restaurant table added!");
+    });
+  }
+
+  deleteRestaurantTable(id: number): void{
+    this.http.post("backend/api/manager/delete-restaurant-table/" + id, {
+      headers: this.headers,
+      responseType: "json",
+    }).subscribe(response => {
+      this.toastr.success("Restaurant table deleted!");
+    });
+  }
+
+  updateRestaurantTable(restaurantTable: RestaurantTable): void{
+    this.http.post<RestaurantTable>("backend/api/manager/update-restaurant-table", restaurantTable, {
+      headers: this.headers,
+      responseType: "json",
+    }).subscribe(response => {
+      this.toastr.success("Restaurant table updated!");
     });
   }
 

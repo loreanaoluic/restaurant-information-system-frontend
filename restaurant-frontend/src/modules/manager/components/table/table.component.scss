@@ -1,0 +1,23 @@
+.drag {
+    cursor: move;
+}
+
+.btn-danger {
+    width: 10%;
+    float: right;
+}
+
+.btn-success {
+    margin-right:30px;
+    float: right;
+    width: 10%;
+}
+
+.image {
+    position: relative;
+}
+.image span {
+    position: absolute;
+    right: 80px;
+    top: 30px;
+}
