@@ -9,7 +9,6 @@ export class WebSocketService {
   public connect() {
     var tok = localStorage.getItem('userToken');
     let stompClient;
-    console.log(tok);
     if (tok) {
       var currentUser = JSON.parse(tok);
       var token = currentUser.accessToken; // your token

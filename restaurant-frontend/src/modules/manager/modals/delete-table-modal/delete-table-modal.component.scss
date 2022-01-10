@@ -1,0 +1,17 @@
+.styled-table {
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 100px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .styled-table thead tr {
+    color: #404040;
+    text-align: left;
+  }
+  
+  .styled-table th,
+  .styled-table td {
+    padding: 10px 58px;
+  }
+  

@@ -45,8 +45,6 @@ export class EmployeeListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.authService.getCurrentUser());
-
     this.managerService.getAllUsers().subscribe((response) => {
       this.users = response;
       this.users = this.users.filter((user) => {

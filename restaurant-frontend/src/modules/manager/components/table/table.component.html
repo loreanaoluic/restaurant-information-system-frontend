@@ -1,0 +1,26 @@
+<button class="btn btn-danger" (click)="openDeleteModal()">Delete</button>
+<button class="btn btn-success" (click)="openAddModal()" style='margin-right:16px'>Add</button>
+
+<div class="col-3" *ngFor="let table of tables">
+    <div id="SQUARE" class="image" *ngIf="table.tableShape === 'SQUARE'" cdkDrag (cdkDragEnded)="onDragEnded($event, table)"
+    [ngStyle]="{'left': table.coordinateX + 'px', 'top' : table.coordinateY + 'px'}">
+        <img class="drag" src= "../../../../assets/images/table.png" alt="">
+        <span class="spanIdSquare">
+            <h2>{{table.id}}</h2>
+        </span>
+    </div>
+    <div id="ROUND" class="image" *ngIf="table.tableShape === 'ROUND'" cdkDrag (cdkDragEnded)="onDragEnded($event, table)"
+    [ngStyle]="{'left': table.coordinateX + 'px', 'top' : table.coordinateY + 'px'}">
+        <img class="drag" src= "../../../../assets/images/round-table.png" alt="">
+        <span class="spanIdRound">
+            <h2>{{table.id}}</h2>
+        </span>
+    </div>
+    <div id="BAR" class="image" *ngIf="table.tableShape === 'BAR'" cdkDrag (cdkDragEnded)="onDragEnded($event, table)"
+    [ngStyle]="{'left': table.coordinateX + 'px', 'top' : table.coordinateY + 'px'}">
+        <img class="drag" src= "../../../../assets/images/bar.png" alt="">
+        <span class="spanIdBar">
+            <h2>{{table.id}}</h2>
+        </span>
+    </div>
+</div>

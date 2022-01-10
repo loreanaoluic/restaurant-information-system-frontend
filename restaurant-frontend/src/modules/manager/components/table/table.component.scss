@@ -1,3 +1,18 @@
+.drag {
+    cursor: move;
+}
+
+.btn-danger {
+    width: 10%;
+    float: right;
+}
+
+.btn-success {
+    margin-right:30px;
+    float: right;
+    width: 10%;
+}
+
 .image {
     position: relative;
 }
@@ -8,32 +23,15 @@
     top: 20px;
 }
 
-.spanBtnSquare {
-    position: absolute;
-    right: 140px;
-    top: 70px;
-}
-
 .spanIdRound {
     position: absolute;
     right: 80px;
     top: 30px;
 }
 
-.spanBtnRound {
-    position: absolute;
-    right: 150px;
-    top: 95px;
-}
 
 .spanIdBar {
     position: absolute;
     right: 50px;
     top: -10px;
-}
-
-.spanBtnBar {
-    position: absolute;
-    right: 60px;
-    top: 30px;
 }
