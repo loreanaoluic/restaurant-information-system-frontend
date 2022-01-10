@@ -28,6 +28,7 @@ import { ChefModule } from '../chef/chef.module';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { ChangePasswordModalComponent } from './modals/change-password-modal/change-password-modal.component';
 import { FormsModule } from '@angular/forms';
+import { WebSocketService } from '../app/services/WebSocketService';
 
 @NgModule({
   declarations: [
@@ -65,10 +66,9 @@ import { FormsModule } from '@angular/forms';
   providers: [
     AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true },
+    WebSocketService,
   ],
   bootstrap: [AppComponent],
-  entryComponents: [
-    ChangePasswordModalComponent
-  ],
+  entryComponents: [ChangePasswordModalComponent],
 })
 export class AppModule {}
