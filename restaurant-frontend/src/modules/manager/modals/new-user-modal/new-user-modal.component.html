@@ -13,15 +13,23 @@
       <input
         type="text"
         class="input-field"
+        [(ngModel)]="username"
         id="username"
-        name="username"
+        name="usernameModal"
         required
       />
       <label class="input-label">Korisnicko ime</label>
     </div>
 
     <div class="input">
-      <input type="text" class="input-field" id="name" name="name" required />
+      <input
+        type="text"
+        class="input-field"
+        [(ngModel)]="name"
+        id="name"
+        name="nameModal"
+        required
+      />
       <label class="input-label">Ime</label>
     </div>
 
@@ -29,8 +37,9 @@
       <input
         type="text"
         class="input-field"
+        [(ngModel)]="lastName"
         id="lastName"
-        name="lastName"
+        name="lastNameModal"
         required
       />
       <label class="input-label">Prezime</label>
@@ -40,8 +49,9 @@
       <input
         type="text"
         class="input-field"
+        [(ngModel)]="emailAddress"
         id="emailAddress"
-        name="emailAddress"
+        name="emailAddressModal"
         required
       />
       <label class="input-label">Email</label>
@@ -49,9 +59,10 @@
 
     <div class="input">
       <input
-        type="text"
+        type="number"
         class="input-field"
-        name="salary"
+        [(ngModel)]="salary"
+        name="salaryModal"
         id="salary"
         required
       />
@@ -59,7 +70,14 @@
     </div>
 
     <div class="input">
-      <input type="text" class="input-field" name="role" id="role" required />
+      <input
+        type="text"
+        class="input-field"
+        [(ngModel)]="role"
+        name="roleModal"
+        id="role"
+        required
+      />
       <label class="input-label">Uloga</label>
     </div>
 
@@ -67,7 +85,8 @@
       <input
         type="password"
         class="input-field"
-        name="password"
+        [(ngModel)]="password"
+        name="passwordModal"
         id="password"
         required
       />
@@ -78,7 +97,8 @@
       <input
         type="password"
         class="input-field"
-        name="password2"
+        [(ngModel)]="password2"
+        name="password2Modal"
         id="password2"
         required
       />
@@ -90,7 +110,22 @@
   <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
     Close
   </button>
-  <button type="submit" class="btn btn-primary" (click)="saveChanges()">
+  <button
+    type="submit"
+    class="btn btn-primary"
+    name="saveChangesModal"
+    [disabled]="
+      username === '' ||
+      name === '' ||
+      role === '' ||
+      lastName === '' ||
+      salary === '' ||
+      password === '' ||
+      password2 === '' ||
+      emailAddress === ''
+    "
+    (click)="saveChanges()"
+  >
     Save changes
   </button>
 </div>
