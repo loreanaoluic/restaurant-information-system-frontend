@@ -86,7 +86,12 @@
   <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
     Close
   </button>
-  <button type="submit" class="btn btn-primary" (click)="saveChanges()">
+  <button
+    type="submit"
+    class="btn btn-primary"
+    name="saveChangesModal"
+    (click)="saveChanges()"
+  >
     Save changes
   </button>
 </div>
