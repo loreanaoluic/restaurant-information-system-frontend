@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ManagerRoutes } from './manager.routes';
+import { NgApexchartsModule } from "ng-apexcharts";
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { EmployeesPageComponent } from './pages/employees-page/employees-page.component';
 import { DrinkCardComponent } from './components/drink-card/drink-card.component';
@@ -23,7 +24,12 @@ import { TablePageComponent } from './pages/table-page/table-page.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AddTableModalComponent } from './modals/add-table-modal/add-table-modal.component';
 import { DeleteTableModalComponent } from './modals/delete-table-modal/delete-table-modal.component';
+import { ReportComponent } from './components/report/report.component';
 
+import { 
+	IgxDateRangePickerModule,
+	IgxInputGroupModule
+ } from "igniteui-angular";
 @NgModule({
   declarations: [
     EmployeeListComponent,
@@ -43,20 +49,28 @@ import { DeleteTableModalComponent } from './modals/delete-table-modal/delete-ta
     TableComponent,
     TablePageComponent,
     NewUserModalComponent,
+    ReportComponent,
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     Ng2SearchPipeModule,
     DragDropModule,
+    NgApexchartsModule,
     RouterModule.forChild(ManagerRoutes),
     FormsModule,
+    IgxDateRangePickerModule,
+	IgxInputGroupModule,
+
   ],
   exports: [
     EmployeeListComponent,
     DrinkCardComponent,
-    MenuComponent
+    MenuComponent,
+    ReportComponent
   ],
+  
+
   entryComponents: [
     RequestInfoModalComponent,
     DrinkEditModalComponent,

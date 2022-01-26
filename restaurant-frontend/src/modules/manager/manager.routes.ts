@@ -6,6 +6,7 @@ import { DrinkCardPageComponent } from "./pages/drink-card-page/drink-card-page.
 import { MenuPageComponent } from "./pages/menu-page/menu-page.component";
 import { ItemRequestsPageComponent } from "./pages/item-requests-page/item-requests-page.component";
 import { TablePageComponent } from "./pages/table-page/table-page.component";
+import { ReportComponent } from "./components/report/report.component";
 
 export const ManagerRoutes: Routes = [
   {
@@ -47,6 +48,13 @@ export const ManagerRoutes: Routes = [
     path: "table",
     pathMatch: "full",
     component: TablePageComponent,
+    canActivate: [RoleGuard],
+    data: { expectedRoles: "Manager" },
+  }
+  ,{
+    path: "report",
+    pathMatch: "full",
+    component: ReportComponent,
     canActivate: [RoleGuard],
     data: { expectedRoles: "Manager" },
   }

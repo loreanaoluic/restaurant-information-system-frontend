@@ -10,12 +10,14 @@ import { ManagerModule } from '../manager/manager.module';
 @NgModule({
   declarations: [
     EmployeesPageComponent,
+
   ],
   imports: [
     CommonModule,
     HttpClientModule,    
     RouterModule.forChild(DirectorRoutes),
     ManagerModule,
-  ]
+    
+  ],
 })
 export class DirectorModule { }

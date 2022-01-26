@@ -6,6 +6,7 @@ import { User } from 'src/modules/app/models/User';
 import { Item } from 'src/modules/app/models/Item';
 import { Request } from 'src/modules/app/models/Request';
 import { RestaurantTable } from 'src/modules/app/models/RestaurantTable';
+import { Report } from 'src/modules/app/models/Report';
 
 @Injectable({
   providedIn: 'root'
@@ -43,12 +44,30 @@ export class ManagerService {
     });
   }
 
+  
+
+  getAllReport() : Observable<Report> {
+    return this.http.get<Report>("backend/api/reports", {
+      headers: this.headers,
+      responseType: "json",
+    });
+  }
+
+  getDateRangeReport(start_date : number, end_date:number) : Observable<Report>{
+    return this.http.get<Report>("backend/api/reports/" + start_date + "/" + end_date, {
+      headers: this.headers,
+      responseType: "json",
+    });
+  }
+
   getAllRequests(): Observable<Request[]>{
     return this.http.get<Request[]>("backend/api/manager/requests", {
       headers: this.headers,
       responseType: "json",
     });
   }
+
+  
 
   addRestaurantTable(restaurantTable: RestaurantTable): void{
     this.http.post<RestaurantTable>("backend/api/manager/add-restaurant-table", restaurantTable, {
@@ -138,6 +157,10 @@ export class ManagerService {
     }).subscribe(response => {
       this.toastr.success("User fired!");
     });
+  }
+
+  getReportByDate(date:Date):void{
+
   }
 
   orderDrink(item: Item): void{
