@@ -15,6 +15,15 @@ export class NewUserModalComponent implements OnInit {
     private userService: UserService
   ) {}
 
+  public username: String = '';
+  public role: String = '';
+  public lastName: String = '';
+  public emailAddress: String = '';
+  public password: String = '';
+  public salary: String = '';
+  public password2: String = '';
+  public name: String = '';
+
   ngOnInit(): void {}
 
   saveChanges() {

@@ -1,5 +1,10 @@
 <div class="container">
-  <button type="button" class="btn btn-secondary" (click)="openCreateModal()">
+  <button
+    type="button"
+    name="newEmployeeBtn"
+    class="btn btn-secondary"
+    (click)="openCreateModal()"
+  >
     Add new employee
   </button>
   <div class="search-container">
@@ -17,6 +22,7 @@
     </svg>
     <input
       type="text"
+      id="search"
       name="search"
       [(ngModel)]="term"
       class="search-input"
@@ -36,8 +42,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users | filter: term">
-        <td>{{ user.username }}</td>
+      <tr id="employeeTable" *ngFor="let user of users | filter: term">
+        <td name="UsernameInTable">{{ user.username }}</td>
         <td>{{ user.name + " " + user.lastName }}</td>
         <td>{{ user.emailAddress }}</td>
         <td>{{ user.salary }}</td>
