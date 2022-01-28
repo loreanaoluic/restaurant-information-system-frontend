@@ -10,11 +10,7 @@ export class WebSocketService {
     var tok = localStorage.getItem('userToken');
     let stompClient;
     if (tok) {
-      var currentUser = JSON.parse(tok);
-      var token = currentUser.accessToken; // your token
-
       let socket = new SockJs(`http://localhost:8081/socket`);
-
       stompClient = Stomp.over(socket);
     }
     return stompClient;
