@@ -1,8 +1,8 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/modules/app/services/auth.service';
 import { HeadBartenderService } from '../../services/head-bartender.service';
 import { NewRequest } from 'src/modules/app/models/NewRequest';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-drink-suggestion',
@@ -11,19 +11,31 @@ import { NewRequest } from 'src/modules/app/models/NewRequest';
 })
 export class DrinkSuggestionComponent implements OnInit {
 
-  constructor ( private authService : AuthService, private headBartenderService : HeadBartenderService ) { }
+  constructor ( private authService : AuthService, private headBartenderService : HeadBartenderService,
+    private toastrService: ToastrService ) { }
 
   ngOnInit(): void {}
 
   saveChanges() {
-    let image = "../../../../assets/images/" + (<HTMLInputElement>document.getElementById("image")).value.split(/(\\|\/)/g).pop();
-    const request = new NewRequest((<HTMLInputElement>document.getElementById("itemName")).value, 
-    (<HTMLInputElement>document.getElementById("ingredients")).value, image, 
-    (<HTMLInputElement>document.getElementById("description")).value, 
-    Number((<HTMLInputElement>document.getElementById("preparationTime")).value),
-    Number((<HTMLInputElement>document.getElementById("price")).value), 
-      this.authService.getCurrentUser()?.username!);
+    if ((<HTMLInputElement>document.getElementById("image")).value == "" || 
+    (<HTMLInputElement>document.getElementById("itemName")).value == "" ||
+    (<HTMLInputElement>document.getElementById("ingredients")).value == "" || 
+    (<HTMLInputElement>document.getElementById("description")).value == "" ||
+    (<HTMLInputElement>document.getElementById("preparationTime")).value == "" ||
+    (<HTMLInputElement>document.getElementById("price")).value == "") {
 
-    this.headBartenderService.createRequest(request);
+      this.toastrService.error('All fields must be filled!');
+
+    } else {
+
+      let image = "../../../../assets/images/" + (<HTMLInputElement>document.getElementById("image")).value.split(/(\\|\/)/g).pop();
+      const request = new NewRequest((<HTMLInputElement>document.getElementById("itemName")).value, 
+      (<HTMLInputElement>document.getElementById("ingredients")).value, image, 
+      (<HTMLInputElement>document.getElementById("description")).value, 0,
+      Number((<HTMLInputElement>document.getElementById("price")).value), 
+        this.authService.getCurrentUser()?.username!);
+
+      this.headBartenderService.createRequest(request);
+    }
   }
 }

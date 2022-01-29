@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { Item } from 'src/modules/app/models/Item';
 import { ManagerService } from '../../services/manager.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component(
   { selector: 'app-modal',
@@ -11,23 +12,25 @@ import { ManagerService } from '../../services/manager.service';
 export class DrinkEditModalComponent {
   drink: Item;
 
-  constructor(public modalRef: MdbModalRef<DrinkEditModalComponent>, private managerService: ManagerService) {}
+  constructor(public modalRef: MdbModalRef<DrinkEditModalComponent>, private managerService: ManagerService,
+    private toastrService: ToastrService) {}
 
   saveChanges() {
-    if ((<HTMLInputElement>document.getElementById("itemName")).value !== "") {
-      this.drink.name = (<HTMLInputElement>document.getElementById("itemName")).value;
-    }
-    if ((<HTMLInputElement>document.getElementById("ingredients")).value !== "") {
-      this.drink.ingredients = (<HTMLInputElement>document.getElementById("ingredients")).value;
-    }
-    if ((<HTMLInputElement>document.getElementById("description")).value !== "") {
-      this.drink.description = (<HTMLInputElement>document.getElementById("description")).value;
-    }
-    if ((<HTMLInputElement>document.getElementById("price")).value !== "") {
-      this.drink.price.value = Number((<HTMLInputElement>document.getElementById("price")).value);
-    }
+    if ((<HTMLInputElement>document.getElementById("itemName")).value === "" || 
+    (<HTMLInputElement>document.getElementById("ingredients")).value === "" ||
+    (<HTMLInputElement>document.getElementById("description")).value === "" ||
+    (<HTMLInputElement>document.getElementById("price")).value === "") {
 
-    this.managerService.updateDrinkCardItem(this.drink);
+      this.toastrService.error('All fields must be filled!');
+
+    } else {
+      
+      this.drink.name = (<HTMLInputElement>document.getElementById("itemName")).value;
+      this.drink.ingredients = (<HTMLInputElement>document.getElementById("ingredients")).value;
+      this.drink.description = (<HTMLInputElement>document.getElementById("description")).value;
+      this.drink.price.value = Number((<HTMLInputElement>document.getElementById("price")).value);
+      this.managerService.updateDrinkCardItem(this.drink);
+    }
   }
 
   deleteItem() {
