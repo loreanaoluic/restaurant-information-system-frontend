@@ -57,7 +57,27 @@ export class StepperOrderComponent {
 
   done() {
     window.location.href = 'http://localhost:4200/waiter/newOrder';
-    this.notificationService.getNotificationCook();
-    this.notificationService.getNotificationBartender();
+    let bartender = 0;
+    let cook = 0;
+    this.waiterService.getAllReceiptItems().subscribe((response) => {
+      let receiptItems = response;
+      for (let i = 0; i < receiptItems.length; i++) {
+          if (receiptItems[i].item.preparationTime == null) {
+            bartender++;
+          } else {
+            cook++;
+          }
+      }
+      if (bartender != 0) {
+        this.notificationService.getNotificationBartender();
+        console.log("sanker");
+      }
+      if (cook != 0) {
+        this.notificationService.getNotificationCook();
+        console.log("kuvar");
+      }
+    });
+    // this.notificationService.getNotificationCook();
+    // this.notificationService.getNotificationBartender();
   }
 }
