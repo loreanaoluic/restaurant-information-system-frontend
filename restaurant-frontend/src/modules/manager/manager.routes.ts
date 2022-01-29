@@ -7,6 +7,7 @@ import { MenuPageComponent } from "./pages/menu-page/menu-page.component";
 import { ItemRequestsPageComponent } from "./pages/item-requests-page/item-requests-page.component";
 import { TablePageComponent } from "./pages/table-page/table-page.component";
 import { ReportComponent } from "./components/report/report.component";
+import { NewExpenseComponent } from "./components/new-expense/new-expense.component";
 
 export const ManagerRoutes: Routes = [
   {
@@ -55,6 +56,13 @@ export const ManagerRoutes: Routes = [
     path: "report",
     pathMatch: "full",
     component: ReportComponent,
+    canActivate: [RoleGuard],
+    data: { expectedRoles: "Manager" },
+  }
+  ,{
+    path: "newExpense",
+    pathMatch: "full",
+    component: NewExpenseComponent,
     canActivate: [RoleGuard],
     data: { expectedRoles: "Manager" },
   }

@@ -7,6 +7,7 @@ import { Item } from 'src/modules/app/models/Item';
 import { Request } from 'src/modules/app/models/Request';
 import { RestaurantTable } from 'src/modules/app/models/RestaurantTable';
 import { Report } from 'src/modules/app/models/Report';
+import { NewExpense } from 'src/modules/app/models/NewExpense';
 
 @Injectable({
   providedIn: 'root'
@@ -182,6 +183,15 @@ export class ManagerService {
       responseType: "json",
     }).subscribe(response => {
       this.toastr.success("Meal added to the receipt!");
+    });
+  }
+
+  createExpense(expense: NewExpense): void{
+    this.http.post("backend/api/expense", expense, {
+      headers: this.headers,
+      responseType: "json",
+    }).subscribe(response => {
+      this.toastr.success("Expense created!");
     });
   }
   

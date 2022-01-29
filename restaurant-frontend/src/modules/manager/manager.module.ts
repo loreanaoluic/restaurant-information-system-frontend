@@ -25,11 +25,13 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AddTableModalComponent } from './modals/add-table-modal/add-table-modal.component';
 import { DeleteTableModalComponent } from './modals/delete-table-modal/delete-table-modal.component';
 import { ReportComponent } from './components/report/report.component';
+import { NewExpenseComponent } from './components/new-expense/new-expense.component';
 
 import { 
 	IgxDateRangePickerModule,
 	IgxInputGroupModule
  } from "igniteui-angular";
+import { NewExpensePageComponent } from './pages/new-expense-page/new-expense-page.component';
 @NgModule({
   declarations: [
     EmployeeListComponent,
@@ -50,6 +52,8 @@ import {
     TablePageComponent,
     NewUserModalComponent,
     ReportComponent,
+    NewExpenseComponent,
+    NewExpensePageComponent
   ],
   imports: [
     CommonModule,
