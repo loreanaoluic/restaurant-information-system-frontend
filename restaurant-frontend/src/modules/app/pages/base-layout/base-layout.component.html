@@ -1,0 +1,9 @@
+<app-navbar-manager *ngIf="currentRole === 'Manager'"></app-navbar-manager>
+<app-navbar-waiter *ngIf="currentRole === 'Waiter'"></app-navbar-waiter>
+<app-navbar-cook *ngIf="currentRole === 'Cook' || currentRole === 'Chef'"></app-navbar-cook>
+<app-navbar-bartender *ngIf="currentRole === 'Bartender' || currentRole === 'HeadBartender'"></app-navbar-bartender>
+<app-navbar-director *ngIf="currentRole === 'Director'"></app-navbar-director>
+<div class="container">
+    <br>
+    <router-outlet></router-outlet>
+</div>

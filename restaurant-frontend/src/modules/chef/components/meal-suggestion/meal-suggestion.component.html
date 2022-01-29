@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="card">
+    <form class="card-form">
+      <div class="input">
+        <input
+          type="text"
+          class="input-field"
+          id="itemName"
+          name="itemName"
+          required
+        />
+        <label class="input-label">Item name</label>
+      </div>
+      <div class="input">
+        <input
+          type="text"
+          class="input-field"
+          id="ingredients"
+          name="ingredients"
+          required
+        />
+        <label class="input-label">Ingredients</label>
+      </div>
+      <div class="input">
+        <input
+          type="file"
+          class="input-field"
+          id="image"
+          name="image"
+          required
+        />
+        <label class="input-label">Image</label>
+      </div>
+      <div class="input">
+        <input
+          type="text"
+          class="input-field"
+          id="description"
+          name="description"
+          required
+        />
+        <label class="input-label">Description</label>
+      </div>
+      <div class="input">
+        <input
+          type="number"
+          class="input-field"
+          [min]="0"
+          id="preparationTime"
+          name="preparationTime"
+          required
+        />
+        <label class="input-label">Preparation time</label>
+      </div>
+      <div class="input">
+        <input
+          type="number"
+          class="input-field"
+          [min]="0"
+          id="price"
+          name="price"
+          required
+        />
+        <label class="input-label">Price</label>
+      </div>
+      <div class="action">
+        <button
+          type="submit"
+          class="action-button"
+          id="submit"
+          name="submit"
+          (click)="saveChanges()"
+        >
+          Send meal suggestion
+        </button>
+      </div>
+    </form>
+    <div class="card-info">
+      <p>Suggestion will be sent to the manager for review.</p>
+    </div>
+  </div>
+</div>

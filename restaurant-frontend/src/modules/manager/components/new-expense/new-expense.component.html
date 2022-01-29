@@ -1,0 +1,19 @@
+<div class="container">
+	<div class="card">
+		<form class="card-form">
+			<div class="input">
+        <input type="text" class="input-field" id="expenseName" name="expenseName" required/>
+				<label class="input-label">Expense</label>
+			</div>
+      <div class="input">
+        <input type="number" class="input-field" id="value" name="value" required/>
+				<label class="input-label">Value</label>
+			</div>
+			<div class="action">
+        <button type="submit" class="action-button" (click)="saveChanges()">Create new expense</button>
+			</div>
+		</form>
+		<div class="card-info">
+		</div>
+	</div>
+</div>

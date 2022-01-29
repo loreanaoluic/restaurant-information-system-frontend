@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <a class="navbar-brand" href="#">
+          <img src="../../../../assets/images/logo.png" width="90" height="40" alt="">
+        </a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="waiter/newOrder">New order</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="waiter/notification">Notifications</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <a class="nav-link" href="waiter/profile" style="color:#d9d9d9;">My profile</a>
+          <button class="btn btn-outline-light" style="font-family: 'Bebas Neue'; font-size: 20px;" type="submit" (click)="logout()">Log out</button>
+        </form>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,25 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel"> {{request.itemName}}</h5>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="modalRef.close()"
+  ></button>
+</div>
+<div class="modal-body">
+  <div>
+    <img src= {{request.image}} style="height: 100%; width: 100%;" alt="">
+  </div>
+  <div>
+    <br>
+    <p><b>Ingredients: </b> {{request.ingredients}}</p>
+    <p><b>Preparation time: </b> {{request.preparationTime}}</p>
+    <p><b>Price: </b> {{request.price}}</p>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+    Close
+  </button>
+</div>

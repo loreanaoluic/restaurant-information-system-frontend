@@ -1,0 +1,44 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel"> Add table </h5>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="modalRef.close()"
+  ></button>
+</div>
+<div class="modal-body">
+  <form name="shapes">
+    <div class="option">
+      <input type="radio" name="shape" id="roundTable" value="roundTable" (change)="onChange($event.target)">
+      <label for="roundTable">
+        <span></span> 
+        Round table
+      </label>
+    </div>
+    
+    <div class="option">
+      <input type="radio" name="shape" id="squareTable" value="squareTable" (change)="onChange($event.target)">
+      <label for="squareTable">
+        <span></span>
+        Square table
+      </label>
+    </div>
+    
+    <div class="option">
+      <input type="radio" name="shape" id="bar" value="bar" (change)="onChange($event.target)">
+      <label for="bar">
+        <span></span>
+        Bar
+      </label>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+    Close
+  </button>
+  <button type="submit" class="btn btn-primary" (click)="addTable()">
+    Add
+  </button>
+</div>
