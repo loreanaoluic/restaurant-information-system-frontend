@@ -1,12 +1,10 @@
-
-
-<igx-date-range-picker (valueChange)="datesChange()" [(ngModel)]="range">
+<igx-date-range-picker
+  (valueChange)="datesChange()"
+  [(ngModel)]="range"
+  id="date"
+>
   <label igxLabel>date</label>
 </igx-date-range-picker>
-
-
-
-
 
 <div id="chart">
   <apx-chart
@@ -20,4 +18,4 @@
     [colors]="chartOptions.colors"
     [grid]="chartOptions.grid"
   ></apx-chart>
-</div>    
+</div>

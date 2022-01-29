@@ -1,11 +1,17 @@
 <div class="row card-group">
-    <div class="col-3" *ngFor="let order of orders">
-        <div id="container">
-          <h1>{{order.id}}</h1>
-          <p class="name">{{order.item.name}} x {{order.quantity}} </p>
-          <p class="note">{{order.additionalNote}} </p>
-          <button type="button" class="btn btn-success" (click)="orderDone(order.id)">Done</button>
-        </div>
-      </div>
+  <div class="col-3" *ngFor="let order of orders">
+    <div id="container">
+      <h1>{{ order.id }}</h1>
+      <p class="name">{{ order.item.name }} x {{ order.quantity }}</p>
+      <p class="note">{{ order.additionalNote }}</p>
+      <button
+        type="button"
+        class="btn btn-success"
+        id="buttonDone"
+        (click)="orderDone(order.id)"
+      >
+        Done
+      </button>
+    </div>
   </div>
-  
+</div>
