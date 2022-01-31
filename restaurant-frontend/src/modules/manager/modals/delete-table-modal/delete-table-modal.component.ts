@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { RestaurantTable } from 'src/modules/app/models/RestaurantTable';
 import { ManagerService } from '../../services/manager.service';
+import { Router } from '@angular/router';
 
 @Component(
   { selector: 'app-modal',
@@ -11,11 +12,14 @@ import { ManagerService } from '../../services/manager.service';
 export class DeleteTableModalComponent {
   tables: RestaurantTable[] = [];
 
-  constructor(public modalRef: MdbModalRef<DeleteTableModalComponent>, private managerService: ManagerService) {}
+  constructor(public modalRef: MdbModalRef<DeleteTableModalComponent>, private managerService: ManagerService,
+    private router: Router) {}
 
   deleteTable(id: number) {
     this.managerService.deleteRestaurantTable(id);
-    window.location.reload();
+    this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/manager/table']);
+    });
   }
 
 }

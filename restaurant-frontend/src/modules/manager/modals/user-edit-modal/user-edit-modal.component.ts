@@ -4,6 +4,7 @@ import { NewUser } from 'src/modules/app/models/NewUser';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/modules/app/models/User';
 import { UserService } from 'src/modules/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-edit-modal',
@@ -16,7 +17,7 @@ export class UserEditModalComponent implements OnInit {
   constructor(
     public modalRef: MdbModalRef<UserEditModalComponent>,
     private userService: UserService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService, private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -42,7 +43,9 @@ export class UserEditModalComponent implements OnInit {
         (<HTMLInputElement>document.getElementById('salary')).value
       );
       this.userService.update(updatedUser);
-      window.location.reload();
+      this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['/manager/employees']);
+      });
     }
   }
 }

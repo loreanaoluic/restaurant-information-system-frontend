@@ -28,12 +28,12 @@ export class ItemRequestsComponent implements OnInit {
 
   acceptRequest(requestId: number) {
     this.managerService.acceptRequest(requestId);
-    window.location.reload();
+    this.ngOnInit();
   }
 
   declineRequest(requestId: number) {
     this.managerService.declineRequest(requestId);
-    window.location.reload();
+    this.ngOnInit();
   }
 
   openModal(request: Request) {

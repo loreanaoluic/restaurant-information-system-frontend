@@ -6,7 +6,8 @@
     "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -48,6 +49,11 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^13.1.2",
+    "@angular-eslint/builder": "13.0.1",
+    "@angular-eslint/eslint-plugin": "13.0.1",
+    "@angular-eslint/eslint-plugin-template": "13.0.1",
+    "@angular-eslint/schematics": "13.0.1",
+    "@angular-eslint/template-parser": "13.0.1",
     "@angular/cli": "~13.1.2",
     "@angular/compiler-cli": "~13.1.0",
     "@igniteui/angular-schematics": "~13.0.900",
@@ -56,6 +62,9 @@
     "@types/node": "^12.20.41",
     "@types/sockjs-client": "^1.5.1",
     "@types/stompjs": "^2.3.5",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.1",
+    "eslint": "^8.8.0",
     "jasmine-core": "~3.10.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",

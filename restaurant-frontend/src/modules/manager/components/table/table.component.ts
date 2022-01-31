@@ -20,7 +20,6 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
     this.managerService.getAllRestaurantTables().subscribe((response) => {
       this.tables = response;
-      console.log(this.tables);
     });
   }
 
@@ -40,7 +39,7 @@ export class TableComponent implements OnInit {
     table.coordinateX = positionX;
     table.coordinateY = positionY;
     this.managerService.updateRestaurantTable(table);
-    window.location.reload();
+    this.ngOnInit();
   }
 
 }

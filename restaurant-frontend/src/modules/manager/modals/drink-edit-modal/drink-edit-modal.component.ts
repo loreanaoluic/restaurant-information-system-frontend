@@ -3,6 +3,7 @@ import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { Item } from 'src/modules/app/models/Item';
 import { ManagerService } from '../../services/manager.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component(
   { selector: 'app-modal',
@@ -13,7 +14,7 @@ export class DrinkEditModalComponent {
   drink: Item;
 
   constructor(public modalRef: MdbModalRef<DrinkEditModalComponent>, private managerService: ManagerService,
-    private toastrService: ToastrService) {}
+    private toastrService: ToastrService, private router: Router) {}
 
   saveChanges() {
     if ((<HTMLInputElement>document.getElementById("itemName")).value === "" || 
@@ -35,6 +36,8 @@ export class DrinkEditModalComponent {
 
   deleteItem() {
     this.managerService.deleteDrinkCardItem(this.drink);
-    window.location.reload();
+    this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/manager/drinkCard']);
+    });
   }
 }

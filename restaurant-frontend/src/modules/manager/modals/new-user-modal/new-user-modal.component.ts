@@ -3,6 +3,7 @@ import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { NewUser } from 'src/modules/app/models/NewUser';
 import { User } from 'src/modules/app/models/User';
 import { UserService } from 'src/modules/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-user-modal',
@@ -12,7 +13,7 @@ import { UserService } from 'src/modules/app/services/user.service';
 export class NewUserModalComponent implements OnInit {
   constructor(
     public modalRef: MdbModalRef<NewUserModalComponent>,
-    private userService: UserService
+    private userService: UserService, private router: Router
   ) {}
 
   public username: String = '';
@@ -38,6 +39,8 @@ export class NewUserModalComponent implements OnInit {
     );
 
     this.userService.create(user);
-    window.location.reload();
+    this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/manager/employees']);
+    });
   }
 }

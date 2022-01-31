@@ -67,6 +67,6 @@ export class EmployeeListComponent implements OnInit {
 
   deleteUser(username: string) {
     this.managerService.deleteUser(username);
-    window.location.reload();
+    this.ngOnInit();
   }
 }

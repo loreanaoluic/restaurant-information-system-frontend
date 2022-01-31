@@ -105,11 +105,25 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [ "./node_modules/hammerjs/hammer.min.js"]
+            "scripts": [
+              "./node_modules/hammerjs/hammer.min.js"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }
     }
   },
-  "defaultProject": "restaurant-frontend"
+  "defaultProject": "restaurant-frontend",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
