@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
@@ -7,19 +7,16 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './not-found.component.html',
   styleUrls: ['./not-found.component.scss']
 })
-export class NotFoundComponent implements OnInit {
+export class NotFoundComponent{
 
   constructor(
     private router : Router,
     private authService : AuthService
   ) { }
 
-  ngOnInit(): void {
-  }
-
   redirect(){
     if(this.authService.getCurrentUser()){
-      let role = this.authService.getCurrentUser()?.dtype;
+      const role = this.authService.getCurrentUser()?.dtype;
 
       if(role === "Manager") this.router.navigate(["manager/employees"]);
       if(role === "Waiter") this.router.navigate(["waiter/newOrder"]);

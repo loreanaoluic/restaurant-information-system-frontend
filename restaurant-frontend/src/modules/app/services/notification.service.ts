@@ -16,7 +16,7 @@ export class NotificationService {
         headers: this.headers,
         responseType: 'json',
       })
-      .subscribe((response) => {
+      .subscribe(() => {
         this.toastr.success('Notify successfull!');
       });
   }
@@ -27,7 +27,7 @@ export class NotificationService {
         headers: this.headers,
         responseType: 'json',
       })
-      .subscribe((response) => {
+      .subscribe(() => {
         this.toastr.success('Notify successfull!');
       });
   }
@@ -38,7 +38,7 @@ export class NotificationService {
         headers: this.headers,
         responseType: 'json',
       })
-      .subscribe((response) => {
+      .subscribe(() => {
         this.toastr.success('Notify successfull!');
       });
   }

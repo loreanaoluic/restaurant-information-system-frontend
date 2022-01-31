@@ -1,7 +1,6 @@
 
 
 import { Component, ViewChild, OnInit } from "@angular/core";
-import {FormGroup, FormControl} from '@angular/forms';
 import { DateRange } from 'igniteui-angular';
 
 import {
@@ -59,19 +58,19 @@ export class ReportComponent implements OnInit {
   }
 
   public datesChange(){
-    var start_date = (this.range.start as Date) ;
-    var end_date = this.range.end as Date;
+    const start_date = (this.range.start as Date) ;
+    const end_date = this.range.end as Date;
     start_date.setMinutes(0);
     start_date.setHours(0);
     start_date.setSeconds(0);
     start_date.setMilliseconds(0);
-    let start_date_number = start_date.getTime();
+    const start_date_number = start_date.getTime();
     end_date.setMinutes(59);
     end_date.setSeconds(59);
     end_date.setMilliseconds(59);
     end_date.setHours(23);
     
-    let end_date_number = end_date.getTime();
+    const end_date_number = end_date.getTime();
       this.managerService.getDateRangeReport(start_date_number, end_date_number).subscribe(
         (response : any) => {
           this.report = response;
@@ -89,12 +88,7 @@ export class ReportComponent implements OnInit {
       ],
       chart: {
         height: 350,
-        type: "bar",
-        events: {
-          click: function(chart : any, w : any, e : any) {
-            
-          }
-        }
+        type: "bar"
       },
       colors: [
         "#008FFB",

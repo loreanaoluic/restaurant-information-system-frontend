@@ -21,7 +21,7 @@ export class FoodOrdersComponent implements OnInit {
     private notificationService: NotificationService
   ) {
     // Open connection with server socket
-    let stompClient = this.webSocketService.connect();
+    const stompClient = this.webSocketService.connect();
     stompClient.connect({}, () => {
       // Subscribe to notification topic
       stompClient.subscribe(

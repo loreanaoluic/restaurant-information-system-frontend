@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ReceiptItem } from 'src/modules/app/models/ReceiptItem';
 import { RestaurantTable } from 'src/modules/app/models/RestaurantTable';
 import { Receipt } from 'src/modules/app/models/Receipt';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ import { Receipt } from 'src/modules/app/models/Receipt';
 export class WaiterService {
   private headers = new HttpHeaders({ "Content-Type": "application/json"});
 
-  constructor(private http: HttpClient, private toastr: ToastrService) { }
+  constructor(private http: HttpClient, private toastr: ToastrService,
+    private router: Router) { }
 
   getAllOrders(): Observable<ReceiptItem[]>{
     return this.http.get<ReceiptItem[]>("backend/api/waiter/orders", {
@@ -25,9 +27,11 @@ export class WaiterService {
     this.http.post<ReceiptItem>("backend/api/waiter/" + id + "/change-status", {
       headers: this.headers,
       responseType: "json",
-    }).subscribe(response => {
+    }).subscribe(() => {
       this.toastr.success(id + " order done!");
-      window.location.reload();
+      this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['/waiter/notification']);
+      });
     });
   }
 
@@ -57,7 +61,7 @@ export class WaiterService {
     this.http.post<ReceiptItem>("backend/api/waiter/update-receipt-item", receiptItem, {
       headers: this.headers,
       responseType: "json",      
-    }).subscribe(response => {
+    }).subscribe(() => {
       this.toastr.success("Note updated");
     });
   }
@@ -66,7 +70,7 @@ export class WaiterService {
     this.http.post("backend/api/waiter/delete-receipt-item/" + id, {
       headers: this.headers,
       responseType: "json",      
-    }).subscribe(response => {
+    }).subscribe(() => {
       this.toastr.success("Item deleted");
     });
   }

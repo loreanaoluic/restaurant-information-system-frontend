@@ -7,6 +7,7 @@ import { NewUserModalComponent } from '../../modals/new-user-modal/new-user-moda
 import { UserEditModalComponent } from '../../modals/user-edit-modal/user-edit-modal.component';
 import { ManagerService } from '../../services/manager.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-list',
@@ -27,10 +28,11 @@ export class EmployeeListComponent implements OnInit {
     private managerService: ManagerService,
     private authService: AuthService,
     private modalService: MdbModalService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private router: Router
   ) {
     // Open connection with server socket
-    let stompClient = this.webSocketService.connect();
+    const stompClient = this.webSocketService.connect();
     stompClient.connect({}, () => {
       // Subscribe to notification topic
       stompClient.subscribe(
@@ -38,7 +40,7 @@ export class EmployeeListComponent implements OnInit {
         (notifications: { body: string }) => {
           // Update notifications attribute with the recent messsage sent from the server
           this.notifications = JSON.parse(notifications.body).count;
-          this.toastrService.success('Dobili ste novu notifikaciju!');
+          this.toastrService.success('New notification has arrived!');
         }
       );
     });
@@ -67,6 +69,8 @@ export class EmployeeListComponent implements OnInit {
 
   deleteUser(username: string) {
     this.managerService.deleteUser(username);
-    this.ngOnInit();
+    this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/manager/employees']);
+    });
   }
 }

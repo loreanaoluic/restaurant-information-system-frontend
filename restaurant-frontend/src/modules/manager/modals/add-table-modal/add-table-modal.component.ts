@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-table-modal.component.scss']
 })  
 export class AddTableModalComponent {
-  tableShape: string = "SQUARE";
+  tableShape = "SQUARE";
 
   constructor(public modalRef: MdbModalRef<AddTableModalComponent>, private managerService: ManagerService,
     private router: Router) {}

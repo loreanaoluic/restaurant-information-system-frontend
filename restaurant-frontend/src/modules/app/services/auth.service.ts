@@ -32,13 +32,13 @@ export class AuthService {
 
   getCurrentUser(): User | null{
 
-    let jsonString = localStorage.getItem("currentUser");
+    const jsonString = localStorage.getItem("currentUser");
 
     if(jsonString) return JSON.parse(jsonString);
     else return null;
   }
 
-  logout(): Observable<String> {
+  logout(): Observable<string> {
     localStorage.removeItem("currentUser");
     localStorage.removeItem("userToken");
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from 'src/modules/app/services/auth.service';
 import { ChefService } from '../../services/chef.service';
 import { NewRequest } from 'src/modules/app/models/NewRequest';
@@ -9,13 +9,10 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './meal-suggestion.component.html',
   styleUrls: ['./meal-suggestion.component.scss']
 })
-export class MealSuggestionComponent implements OnInit {
+export class MealSuggestionComponent{
 
   constructor ( private authService : AuthService, private mealService : ChefService,
     private toastrService: ToastrService ) { }
-
-  ngOnInit(): void {}
-
   saveChanges() {
     if ((<HTMLInputElement>document.getElementById("image")).value == "" || 
     (<HTMLInputElement>document.getElementById("itemName")).value == "" ||
@@ -28,7 +25,7 @@ export class MealSuggestionComponent implements OnInit {
 
     } else {
 
-      let image = "../../../../assets/images/" + (<HTMLInputElement>document.getElementById("image")).value.split(/(\\|\/)/g).pop();
+      const image = "../../../../assets/images/" + (<HTMLInputElement>document.getElementById("image")).value.split(/(\\|\/)/g).pop();
       const request = new NewRequest((<HTMLInputElement>document.getElementById("itemName")).value, 
       (<HTMLInputElement>document.getElementById("ingredients")).value, image, 
       (<HTMLInputElement>document.getElementById("description")).value, 

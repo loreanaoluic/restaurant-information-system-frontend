@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ManagerService } from '../../services/manager.service';
 import { NewExpense } from 'src/modules/app/models/NewExpense';
 import { ToastrService } from 'ngx-toastr';

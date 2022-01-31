@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { WaiterService } from '../../services/waiter.service';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { ReceiptItem } from 'src/modules/app/models/ReceiptItem';
@@ -21,7 +21,7 @@ import { NotificationService } from '../../../app/services/notification.service'
 })
 export class StepperOrderComponent {
   receiptItems: ReceiptItem[] = [];
-  totalPrice: number = 0;
+  totalPrice = 0;
   modalRef: MdbModalRef<NoteModalComponent>;
   @ViewChild('stepper') stepper: MatStepper;
 
@@ -57,27 +57,7 @@ export class StepperOrderComponent {
 
   done() {
     window.location.href = 'http://localhost:4200/waiter/newOrder';
-    let bartender = 0;
-    let cook = 0;
-    this.waiterService.getAllReceiptItems().subscribe((response) => {
-      let receiptItems = response;
-      for (let i = 0; i < receiptItems.length; i++) {
-          if (receiptItems[i].item.preparationTime == null) {
-            bartender++;
-          } else {
-            cook++;
-          }
-      }
-      if (bartender != 0) {
-        this.notificationService.getNotificationBartender();
-        console.log("sanker");
-      }
-      if (cook != 0) {
-        this.notificationService.getNotificationCook();
-        console.log("kuvar");
-      }
-    });
-    // this.notificationService.getNotificationCook();
-    // this.notificationService.getNotificationBartender();
+    this.notificationService.getNotificationCook();
+    this.notificationService.getNotificationBartender();
   }
 }

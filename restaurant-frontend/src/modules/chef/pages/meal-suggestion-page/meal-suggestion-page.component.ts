@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-meal-suggestion-page',
   templateUrl: './meal-suggestion-page.component.html',
   styleUrls: ['./meal-suggestion-page.component.scss']
 })
-export class MealSuggestionPageComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+export class MealSuggestionPageComponent {
 
 }

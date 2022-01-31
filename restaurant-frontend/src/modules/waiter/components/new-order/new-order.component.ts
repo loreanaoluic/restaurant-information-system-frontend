@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ReceiptItem } from 'src/modules/app/models/ReceiptItem';
 import { RestaurantTable } from 'src/modules/app/models/RestaurantTable';
 import { WaiterService } from '../../services/waiter.service';
 import { WebSocketService } from 'src/modules/app/services/WebSocketService';
@@ -20,7 +19,7 @@ export class NewOrderComponent implements OnInit {
     private toastrService: ToastrService
   ) {
     // Open connection with server socket
-    let stompClient = this.webSocketService.connect();
+    const stompClient = this.webSocketService.connect();
     stompClient.connect({}, () => {
       // Subscribe to notification topic
       stompClient.subscribe(

@@ -31,7 +31,7 @@ export class RoleGuard implements CanActivate {
     
     if(!this.auth.getCurrentUser()) return false;
 
-    let currentUserRole = this.auth.getCurrentUser()?.dtype!;
+    const currentUserRole = this.auth.getCurrentUser()?.dtype!;
 
 
     if (roles.indexOf(currentUserRole) === -1) {

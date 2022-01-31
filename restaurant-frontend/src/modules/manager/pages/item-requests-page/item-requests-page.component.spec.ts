@@ -1,6 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ItemRequestsComponent } from '../../components/item-requests/item-requests.component';
-
 import { ItemRequestsPageComponent } from './item-requests-page.component';
 
 describe('EmployeesPageComponent', () => {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
@@ -7,12 +7,9 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './navbar-waiter.component.html',
   styleUrls: ['./navbar-waiter.component.scss']
 })
-export class NavbarWaiterComponent implements OnInit {
+export class NavbarWaiterComponent  {
 
   constructor(private authService : AuthService, private router: Router) { }
-
-  ngOnInit(): void {
-  }
 
   logout(){
     this.authService.logout();

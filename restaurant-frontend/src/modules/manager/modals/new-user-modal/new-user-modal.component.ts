@@ -1,31 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { NewUser } from 'src/modules/app/models/NewUser';
-import { User } from 'src/modules/app/models/User';
 import { UserService } from 'src/modules/app/services/user.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-new-user-modal',
   templateUrl: './new-user-modal.component.html',
   styleUrls: ['./new-user-modal.component.scss'],
 })
-export class NewUserModalComponent implements OnInit {
+export class NewUserModalComponent {
   constructor(
     public modalRef: MdbModalRef<NewUserModalComponent>,
-    private userService: UserService, private router: Router
+    private userService: UserService, private router: Router, private toastrService: ToastrService
   ) {}
 
-  public username: String = '';
-  public role: String = '';
-  public lastName: String = '';
-  public emailAddress: String = '';
-  public password: String = '';
-  public salary: String = '';
-  public password2: String = '';
-  public name: String = '';
-
-  ngOnInit(): void {}
+  public username = '';
+  public role = '';
+  public lastName = '';
+  public emailAddress = '';
+  public password = '';
+  public salary = '';
+  public password2 = '';
+  public name = '';
 
   saveChanges() {
     const user = new NewUser(
@@ -37,10 +36,11 @@ export class NewUserModalComponent implements OnInit {
       (<HTMLInputElement>document.getElementById('password')).value,
       (<HTMLInputElement>document.getElementById('salary')).value
     );
-
-    this.userService.create(user);
-    this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/manager/employees']);
-    });
+    if (this.password==this.password2){
+      this.userService.create(user);
+      window.location.reload();
+      }
+    else
+      this.toastrService.error('Passwords do not match!');
   }
 }

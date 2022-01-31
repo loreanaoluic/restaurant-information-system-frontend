@@ -25,18 +25,19 @@ export class UserService {
         headers: this.headers,
         responseType: 'json',
       })
-      .subscribe((response) => {
+      .subscribe(() => {
         this.toastr.success('Update successfull!');
       });
   }
 
   create(user: User): void {
+    
     this.http
       .post<User>('backend/api/user/new-user', user, {
         headers: this.headers,
         responseType: 'json',
       })
-      .subscribe((response) => {
+      .subscribe(() => {
         this.toastr.success('create successfull!');
       });
   }

@@ -74,7 +74,7 @@ export class ManagerService {
     this.http.post<RestaurantTable>("backend/api/manager/add-restaurant-table", restaurantTable, {
       headers: this.headers,
       responseType: "json",
-    }).subscribe(response => {
+    }).subscribe(() => {
       this.toastr.success("Restaurant table added!");
     });
   }
@@ -83,7 +83,7 @@ export class ManagerService {
     this.http.post("backend/api/manager/delete-restaurant-table/" + id, {
       headers: this.headers,
       responseType: "json",
-    }).subscribe(response => {
+    }).subscribe(() => {
       this.toastr.success("Restaurant table deleted!");
     });
   }
@@ -92,7 +92,7 @@ export class ManagerService {
     this.http.post<RestaurantTable>("backend/api/manager/update-restaurant-table", restaurantTable, {
       headers: this.headers,
       responseType: "json",
-    }).subscribe(response => {
+    }).subscribe(() => {
       this.toastr.success("Restaurant table updated!");
     });
   }
@@ -101,7 +101,7 @@ export class ManagerService {
     this.http.post<Request>("backend/api/manager/request-approved/" + requestId, {
       headers: this.headers,
       responseType: "json",
-    }).subscribe(response => {
+    }).subscribe(() => {
       this.toastr.success("Request accepted!");
     });
   }
@@ -110,7 +110,7 @@ export class ManagerService {
     this.http.post("backend/api/manager/request-declined/" + requestId, {
       headers: this.headers,
       responseType: "json",
-    }).subscribe(response => {
+    }).subscribe(() => {
       this.toastr.success("Request declined!");
     });
   }
@@ -119,7 +119,7 @@ export class ManagerService {
     this.http.post<Item>("backend/api/manager/update-drink-card-item", item, {
       headers: this.headers,
       responseType: "json",
-    }).subscribe(response => {
+    }).subscribe(() => {
       this.toastr.success("Drink updated!");
     });
   }
@@ -128,7 +128,7 @@ export class ManagerService {
     this.http.post<Item>("backend/api/manager/update-menu-item", item, {
       headers: this.headers,
       responseType: "json",
-    }).subscribe(response => {
+    }).subscribe(() => {
       this.toastr.success("Meal updated!");
     });
   }
@@ -137,7 +137,7 @@ export class ManagerService {
     this.http.post<Item>("backend/api/manager/delete-drink-card-item", item, {
       headers: this.headers,
       responseType: "json",
-    }).subscribe(response => {
+    }).subscribe(() => {
       this.toastr.success("Drink deleted!");
     });
   }
@@ -146,7 +146,7 @@ export class ManagerService {
     this.http.post<Item>("backend/api/manager/delete-menu-item", item, {
       headers: this.headers,
       responseType: "json",
-    }).subscribe(response => {
+    }).subscribe(() => {
       this.toastr.success("Meal deleted!");
     });
   }
@@ -155,13 +155,9 @@ export class ManagerService {
     this.http.post("backend/api/manager/delete-user/" + username, {
       headers: this.headers,
       responseType: "json",
-    }).subscribe(response => {
+    }).subscribe(() => {
       this.toastr.success("User fired!");
     });
-  }
-
-  getReportByDate(date:Date):void{
-
   }
 
   orderDrink(item: Item): void{
@@ -170,7 +166,7 @@ export class ManagerService {
     this.http.post<Item>("backend/api/waiter/order-drink/" + tableId + "/" + receiptId, item, {
       headers: this.headers,
       responseType: "json",
-    }).subscribe(response => {
+    }).subscribe(() => {
       this.toastr.success("Drink added to the receipt");
     });
   }
@@ -181,7 +177,7 @@ export class ManagerService {
     this.http.post<Item>("backend/api/waiter/order-meal/" + tableId + "/" + receiptId, item, {
       headers: this.headers,
       responseType: "json",
-    }).subscribe(response => {
+    }).subscribe(() => {
       this.toastr.success("Meal added to the receipt!");
     });
   }
@@ -190,7 +186,7 @@ export class ManagerService {
     this.http.post("backend/api/expense", expense, {
       headers: this.headers,
       responseType: "json",
-    }).subscribe(response => {
+    }).subscribe(() => {
       this.toastr.success("Expense created!");
     });
   }

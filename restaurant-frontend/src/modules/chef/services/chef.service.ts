@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { NewRequest } from 'src/modules/app/models/NewRequest';
 
@@ -16,7 +15,7 @@ export class ChefService {
     this.http.post<Request>("backend/api/chef/new-request", request, {
       headers: this.headers,
       responseType: "json",
-    }).subscribe(response => {
+    }).subscribe(() => {
       this.toastr.success("Request created!");
     });
   }

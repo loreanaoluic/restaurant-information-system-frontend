@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { NewUser } from 'src/modules/app/models/NewUser';
 import { ToastrService } from 'ngx-toastr';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './user-edit-modal.component.html',
   styleUrls: ['./user-edit-modal.component.scss'],
 })
-export class UserEditModalComponent implements OnInit {
+export class UserEditModalComponent {
   user: User;
 
   constructor(
@@ -19,8 +19,6 @@ export class UserEditModalComponent implements OnInit {
     private userService: UserService,
     private toastrService: ToastrService, private router: Router
   ) {}
-
-  ngOnInit(): void {}
 
   saveChanges() {
     if ((<HTMLInputElement>document.getElementById("role")).value == "" || 
