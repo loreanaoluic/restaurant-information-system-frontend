@@ -2,8 +2,11 @@
 
 Web application for restaurant system with Angular frontend.
 
+Backend: https://github.com/loreanaoluic/restaurant-information-system-backend
+
 # Running the application
 
+Run the backend first.
 Clone this repository:
 ```
 git clone https://github.com/loreanaoluic/restaurant-information-system-frontend.git
@@ -17,7 +20,7 @@ npm start
 
 Frontend runs on local port 4200: http://localhost:4200/
 
-# App preview
+# Preview (part of app)
 
 <p align="center">
   <img src="/resources/login.png">
